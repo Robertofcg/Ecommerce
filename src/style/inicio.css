@@ -1,0 +1,97 @@
+/* src/App.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.oscuro {
+    background-color: black;
+    color: #fff;
+}
+
+.imagen {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    opacity: 0.5;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.textoSuperpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    /* Asegura que el texto esté sobre la imagen */
+}
+
+.titulo {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.parrafo {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 980px) {
+    .imagen {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        /* Ajusta automáticamente el tamaño y la forma de la imagen */
+        opacity: 0.6;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .textoSuperpuesto {
+        position: absolute;
+        margin-top: 30px;
+        top: 30%;
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        /* Asegura que el texto esté sobre la imagen */
+    }
+    .chicago, .NewYork {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-height: 410px) {
+    .textoSuperpuesto {
+        position: absolute;
+        margin-top: 30px;
+        top: 70%;
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+    }  }
+  
+

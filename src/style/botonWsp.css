@@ -1,0 +1,67 @@
+.container-boton {
+    position: fixed;
+    z-index: 2;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 25px;
+    transition: ease 0.3s;
+    background-color: black;
+}
+
+.container-boton:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    background-color: black;
+}
+
+.botonwsp {
+    width: 80px;
+    transition: ease 1s;
+    transform: scale(0.8);
+    /* Reducir el tamaño de la imagen */
+}
+
+.btn-wsp {
+    border: none;
+    /* Agregar esta línea para eliminar el borde blanco */
+}
+
+.popup-container {
+    position: relative;
+  }
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 9998; /* Z-index ligeramente inferior al de la ventana flotante */
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Ancho de la ventana flotante */
+    max-width: 800px; /* Ancho máximo para que la ventana flotante sea autoadaptable */
+    height: 90%; /* Alto de la ventana flotante */
+    max-height: 700px; /* Alto máximo para que la ventana flotante sea autoadaptable */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    z-index: 9999;
+  }
+  
+  .popup-inner {
+    text-align: center;
+  }
+
+  .popup .btn-close {
+    position: absolute;
+    top: -5px; /* Ajusta la distancia desde la parte superior */
+    right: 10px; /* Ajusta la distancia desde el lado derecho */
+  }
+  

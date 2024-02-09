@@ -1,0 +1,16 @@
+
+#mision-vision {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.mision-tarjeta,
+.vision-tarjeta {
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%; /* Ajusta el ancho según sea necesario */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

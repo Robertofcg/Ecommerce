@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+/* src/App.css */
+
+html {
+  font-size: 62.5%;
+  height: 100vh;
+
+}
+
+.hide-mobile {
+  display: none;
+}
+
+body {
+  margin: 0;
+  background-color: #e9edf1;
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+  padding: 1.5em;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header a.logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 45%;
+  z-index: 2;
+  background-color: black;
+  transform: translateX(100%);
+  transition: translateX .5s ease-in-out;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-menu {
+  transform: translateX(0);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5em;
+}
+
+.close {
+  cursor: pointer;
+  display: block;
+  margin: 4em auto;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+
+a a {
+  text-decoration: none;
+  font-size: 35px;
+  color: white;
+}
+
+ul li.active {
+  font-weight: bold;
+}
+
+ul li a:hover {
+  color: #0460BC;
+}
+
+.btn {
+  display: flex;
+  gap: 1.0em;
+  border-radius: 5px;
+}
+
+.carrito-b {
+  border: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #c3ccd7;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  gap: 0.4em;
+  border-radius: 5px;
+  color: #000;
+  border-radius: 0.5em;
+}
+
+button p {
+  margin: 0;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.carrito-icono {
+  margin-right: 0.5em;
+  /* Ajusta según sea necesario para el espaciado deseado entre el ícono y el texto */
+}
+
+.carrito-icono svg {
+  width: 2em;
+  /* Ajusta el tamaño del ícono según sea necesario */
+  height: 2em;
+  /* Ajusta el tamaño del ícono según sea necesario */
+}
+
+.botonNav:hover {
+  color: #fff;
+  background-color: #0460bc;
+}
+
+
+.spTwo {
+  width: 300px;
+  margin-top: 2.4em;
+}
+
+.miLista .miItem .active {
+  font-weight: bold;
+  border-bottom: 2px solid #0460bc;
+}
+
+
+@media (min-width: 700px) {
+
+  .hamburger,
+  .close {
+    display: none;
+  }
+
+  nav {
+    position: unset;
+    height: auto;
+    background: none;
+    width: auto;
+    transform: translateX(0);
+  }
+
+  ul {
+    flex-direction: row;
+    gap: 3.6em;
+  }
+
+}
+
+@media (max-width: 699px) {
+  .btn button p {
+    display: none;
+  }
+
+  .carrito-icono svg {
+    width: 30px;
+    /* Ajusta el tamaño del ícono según sea necesario */
+    height: 30px;
+    /* Ajusta el tamaño del ícono según sea necesario */
+  }
+}
