@@ -115,14 +115,22 @@ const Navbar = () => {
                 <div className="popup-container">
                     <div className="popup-overlay" onClick={togglePopup}></div>
                     <div className="popup">
-                        <button onClick={togglePopup} className='btn btn-close d-flex justify-items-end'></button>
+                        <button onClick={togglePopup} className='btn btn-close d-flex justify-content-end'></button>
                         <div className="popup-inner">
-                            <h2>Carrito</h2>
-                            <p>Productos seleccionados</p>
+                            <h1 className='Titulo-carrito'>Carrito</h1>
+                            <p className='fs-5'>Productos seleccionados</p>
+                        </div>
+                        <div className="footer fixed-bottom bg-light">
+                            <div class="col-sm-12 col-md-12 col-lg-12 d-grid">
+                                <button type="submit" id="btnRegistrar"
+                                    class="btn-block text-white boton-carrito">Mandar corizacion</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
+
+
         </header>
     );
 };

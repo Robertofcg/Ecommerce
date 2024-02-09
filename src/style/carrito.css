@@ -1,0 +1,65 @@
+/*  CSS DE CARRITO */
+
+.popup-container {
+    position: relative;
+  }
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    z-index: 9998;
+    /* Z-index ligeramente inferior al de la ventana flotante */
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+    max-height: 700px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup-inner {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: auto; /* Empuja el pie de página hacia abajo */
+    margin-bottom: 0; /* Asegura que no haya espacio adicional debajo del pie de página */
+  }
+  
+  
+  .popup .btn-close {
+    position: absolute;
+    top: -5px;
+    /* Ajusta la distancia desde la parte superior */
+    right: 10px;
+    /* Ajusta la distancia desde el lado derecho */
+  }
+  
+  .Titulo-carrito{
+    font-size: 30px;
+  }
+
+  .boton-carrito{
+    font-size: 15px;
+    border: none;
+    background-color: rgb(27, 118, 255);
+    height: 35px;
+  }

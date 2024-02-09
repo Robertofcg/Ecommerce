@@ -76,7 +76,9 @@ body {
         z-index: 1;
         /* Asegura que el texto esté sobre la imagen */
     }
-    .chicago, .NewYork {
+
+    .chicago,
+    .NewYork {
         width: 100%;
         height: auto;
     }
@@ -92,6 +94,5 @@ body {
         transform: translate(-50%, -50%);
         text-align: center;
         z-index: 1;
-    }  }
-  
-
+    }
+}

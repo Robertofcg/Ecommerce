@@ -3,6 +3,7 @@ import './style/inicio.css';
 import './style/carrucel.css';
 import './style/targetas.css';
 import './style/botonWsp.css';
+import './style/carrito.css';
 
 import React from 'react';
 import Navbar from './components/navbar';
