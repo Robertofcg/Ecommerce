@@ -16,17 +16,20 @@ import Catalogo from './pages/productos';
 
 function App() {
   return (
-    <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <Navbar />
-      <div className="content-wrapper" style={{ flex: 1 }}>
-        <Routes>
-          <Route path="/Ecommerce" element={<Inicio />} />
-          <Route path="/Ecommerce/catalogo" element={<Catalogo />} />        
-        </Routes>
+    <Router basename="/Ecommerce">
+      <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Navbar />
+        <div className="content-wrapper" style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/catalogo" element={<Catalogo />} />
+            {/* Asegúrate de tener las rutas configuradas correctamente */}
+          </Routes>
+        </div>
+        <Wsp />
+        <Footer/>
       </div>
-      <Wsp />
-      <Footer/>
-    </div>
+    </Router>
   );
 }
 

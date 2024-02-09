@@ -64,12 +64,12 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li className="miItem">
-                            <NavLink to="/Ecommerce/catalogo" activeClassName="active">
+                            <NavLink to="/catalogo" activeClassName="active">
                                 Productos
                             </NavLink>
                         </li>
                         <li className="miItem">
-                            <NavLink to="/Ecommerce/contacto" activeClassName="active">
+                            <NavLink to="/contacto" activeClassName="active">
                                 Contacto
                             </NavLink>
                         </li>
