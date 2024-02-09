@@ -21,7 +21,7 @@ function App() {
       <div className="content-wrapper" style={{ flex: 1 }}>
         <Routes>
           <Route path="/Ecommerce" element={<Inicio />} />
-          <Route path="/Ecommerce/catalogo" element={<Catalogo />} />        
+          <Route path="/catalogo" element={<Catalogo />} />        
         </Routes>
       </div>
       <Wsp />

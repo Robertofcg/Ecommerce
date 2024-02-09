@@ -67,12 +67,12 @@ const Navbar = () => {
 
                         </li>
                         <li className="miItem">
-                            <NavLink to="/Ecommerce/catalogo" activeclassname="active">
+                            <NavLink to="/catalogo" activeclassname="active">
                                 Productos
                             </NavLink>
                         </li>
                         <li className="miItem">
-                            <NavLink to="/Ecommerce/contacto" activeclassname="active">
+                            <NavLink to="/contacto" activeclassname="active">
                                 Contacto
                             </NavLink>
                         </li>
@@ -108,9 +108,6 @@ const Navbar = () => {
 
 
                 </div>
-                <a href="https://api.whatsapp.com/send?phone=9513978560" className="btn-wsp" target="_blank">
-                    <i className="bi bi-whatsapp"></i>
-                </a>
             </div>
             <span className="hide-mobile"></span>
             <span className="spTwo hide-mobile"></span>
