@@ -20,13 +20,12 @@ function App() {
       <Navbar />
       <div className="content-wrapper" style={{ flex: 1 }}>
         <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/Ecommerce" element={<Inicio />} />
+          <Route path="/Ecommerce/catalogo" element={<Catalogo />} />        
         </Routes>
       </div>
       <Wsp />
-      <Footer />
-
+      <Footer/>
     </div>
   );
 }
