@@ -69,23 +69,23 @@ const inicio = () => {
                     </div>
                 </div>
 
-                <button className="carousel-control-prev carrucel-siguiente" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <button type="button" class="arrows left-arrow arrow-inactive" aria-label="Arrow Left">
+                <p className="carousel-control-prev carrucel-siguiente" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <button type="button" className="arrows left-arrow arrow-inactive" aria-label="Arrow Left">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                             <path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z" />
                         </svg>
                     </button>
                     <span className="visually-hidden">Previous</span>
-                </button>
+                </p>
 
-                <button className="carousel-control-next carrucel-siguiente" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <button type="button" class="arrows right-arrow" aria-label="Arrow Right">
+                <p className="carousel-control-next carrucel-siguiente" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <button type="button" className="arrows right-arrow" aria-label="Arrow Right">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                             <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" />
                         </svg>
                     </button>
                     <span className="visually-hidden">Next</span>
-                </button>
+                </p>
             </div>
 
             {/* CATEGORIAS */}
@@ -101,22 +101,22 @@ const inicio = () => {
             </div>
 
             {/* MISION Y VISION */}
-            <section id="mision-vision" class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card cardMV">
-                            <div class="card-body">
-                                <h2 class="card-title">Misión</h2>
-                                <p class="card-text">Nuestra misión es proporcionar iluminación de alta calidad que transforme espacios y mejore la vida cotidiana. Buscamos la innovación, la sostenibilidad y la satisfacción del cliente en cada producto que ofrecemos.</p>
+            <section id="mision-vision" className="container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="card cardMV">
+                            <div className="card-body">
+                                <h2 className="card-title">Misión</h2>
+                                <p className="card-text">Nuestra misión es proporcionar iluminación de alta calidad que transforme espacios y mejore la vida cotidiana. Buscamos la innovación, la sostenibilidad y la satisfacción del cliente en cada producto que ofrecemos.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="card cardMV">
-                            <div class="card-body">
-                                <h2 class="card-title">Visión</h2>
-                                <p class="card-text">Guiados por la excelencia, aspiramos a ser líderes en el mercado de iluminación, creando tendencias y superando las expectativas. Nos esforzamos por ser reconocidos por nuestro compromiso con la calidad, el diseño y la responsabilidad social.</p>
+                    <div className="col-md-6">
+                        <div className="card cardMV">
+                            <div className="card-body">
+                                <h2 className="card-title">Visión</h2>
+                                <p className="card-text">Guiados por la excelencia, aspiramos a ser líderes en el mercado de iluminación, creando tendencias y superando las expectativas. Nos esforzamos por ser reconocidos por nuestro compromiso con la calidad, el diseño y la responsabilidad social.</p>
                             </div>
                         </div>
                     </div>

@@ -38,9 +38,10 @@ const Navbar = () => {
     return (
         <header>
             <div className="wrapper navbar">
-                <a className="logo d-flex align-items-center justify-content-center ecommerce">
-                    <NavLink to="/Ecommerce">Ecommerce</NavLink>
-                </a>
+                <NavLink className="logo d-flex align-items-center justify-content-center ecommerce" to="/Ecommerce">
+                    Ecommerce
+                </NavLink>
+
 
                 <nav className={isMenuOpen ? 'toggle-menu' : ''}>
                     <svg
@@ -59,17 +60,19 @@ const Navbar = () => {
                     </svg>
                     <ul className="miLista">
                         <li className="miItem">
-                            <NavLink exact to="/Ecommerce" activeClassName="active">
+                            <NavLink to="/Ecommerce" activeclassname="active">
                                 Inicio
                             </NavLink>
+
+
                         </li>
                         <li className="miItem">
-                            <NavLink to="/catalogo" activeClassName="active">
+                            <NavLink to="/Ecommerce/catalogo" activeclassname="active">
                                 Productos
                             </NavLink>
                         </li>
                         <li className="miItem">
-                            <NavLink to="/contacto" activeClassName="active">
+                            <NavLink to="/Ecommerce/contacto" activeclassname="active">
                                 Contacto
                             </NavLink>
                         </li>
