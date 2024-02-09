@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.b6ef50c3.css",
-    "main.js": "./static/js/main.3196c352.js",
-    "static/js/592.3eab0485.chunk.js": "./static/js/592.3eab0485.chunk.js",
-    "static/media/led.avif": "./static/media/led.7d90f50c1ae7f0dda66f.avif",
-    "static/media/WhatsApp.png": "./static/media/WhatsApp.846e52a190d4418c9f0f.png",
-    "index.html": "./index.html",
-    "main.b6ef50c3.css.map": "./static/css/main.b6ef50c3.css.map",
-    "main.3196c352.js.map": "./static/js/main.3196c352.js.map",
-    "592.3eab0485.chunk.js.map": "./static/js/592.3eab0485.chunk.js.map"
+    "main.css": "/Ecommerce/static/css/main.b6ef50c3.css",
+    "main.js": "/Ecommerce/static/js/main.68bd401f.js",
+    "static/js/592.3eab0485.chunk.js": "/Ecommerce/static/js/592.3eab0485.chunk.js",
+    "static/media/led.avif": "/Ecommerce/static/media/led.7d90f50c1ae7f0dda66f.avif",
+    "static/media/WhatsApp.png": "/Ecommerce/static/media/WhatsApp.846e52a190d4418c9f0f.png",
+    "index.html": "/Ecommerce/index.html",
+    "main.b6ef50c3.css.map": "/Ecommerce/static/css/main.b6ef50c3.css.map",
+    "main.68bd401f.js.map": "/Ecommerce/static/js/main.68bd401f.js.map",
+    "592.3eab0485.chunk.js.map": "/Ecommerce/static/js/592.3eab0485.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6ef50c3.css",
-    "static/js/main.3196c352.js"
+    "static/js/main.68bd401f.js"
   ]
 }
