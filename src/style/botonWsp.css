@@ -1,21 +1,35 @@
 .container-boton {
   position: fixed;
   bottom: 20px;
-  right: 25px;
+  right: 10px;
   z-index: 2;
+  animation: efecto 1.2s infinite;
 }
 
 .bt-wsp {
   border: none;
-  background-color: transparent;
+  background-color:  transparent ;
   padding: 0;
 }
 
 .bt-wsp img {
-  width: 70px;
+  width: 58px;
   transition: ease 0.3s;
 }
 
 .bt-wsp:hover img {
   transform: scale(1.1);
+}
+
+@keyframes efecto {
+  0% {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+  }
+
+  100% {
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+
+  }
 }
