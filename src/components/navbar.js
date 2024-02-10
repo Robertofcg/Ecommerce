@@ -38,7 +38,7 @@ const Navbar = () => {
     return (
         <header>
             <div className="wrapper navbar">
-                <NavLink className="logo d-flex align-items-center justify-content-center ecommerce" to="/Ecommerce">
+                <NavLink className="logo d-flex align-items-center justify-content-center ecommerce" to="/">
                     Ecommerce
                 </NavLink>
 
