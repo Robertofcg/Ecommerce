@@ -195,7 +195,6 @@
   .cardCategoria:hover,
   .cardCategoria:focus-within {
     align-items: center;
-    eslint-disable-next-line
     &:before { transform: translateY(-4%); }
     &:after { transform: translateY(-50%); }
 
@@ -211,7 +210,6 @@
   }
   
   .cardCategoria:focus-within {
-    eslint-disable-next-line
     &:before,
     &:after,
     .content,
