@@ -20,11 +20,15 @@ const cards = [
 
 
 const inicio = () => {
+    const IrCarrucel = () => {
+        const carouselSection = document.getElementById('carouselExampleIndicators');
+        carouselSection.scrollIntoView({ behavior: 'smooth' });
+    };
     return (
         <div className={`contenedorG oscuro`}>
             {/* BIENVENIDA */}
             <img
-                src={require('C:/Users/Roberto/Desktop/landingPageShavi/ecommerce/src/components/led.avif')} // Usa require para importar la imagen
+                src={require('../assets/images/led.png')} // Usa require para importar la imagen
                 alt="Imagen de fondo"
                 className="imagen"
             />
@@ -34,9 +38,10 @@ const inicio = () => {
                     Descubre lo que tenemos para ofrecerte. ¡Explora y disfruta de la
                     experiencia!
                 </p>
-                <a href="#carouselExampleIndicators" className="boton">
+                <button className="boton" onClick={IrCarrucel}>
                     Ver más
-                </a>
+                </button>
+
             </div>
 
             {/* CARRUCEL DE IMAGENES */}
@@ -99,6 +104,7 @@ const inicio = () => {
                     ))}
                 </div>
             </div>
+
 
             {/* MISION Y VISION */}
             <section id="mision-vision" className="container">
