@@ -16,7 +16,7 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
                         <span className="price">${price}</span>
                         <del className="discount-price">${discountPrice}</del>
                     </div>
-                    <button className="btn btn-sm btn-outline-danger w-100 mt-2">Agregar a carrito</button>
+                    <button className="btn btn-lg btn-outline-danger w-100 mt-2 agregarCarrito">Agregar a carrito</button>
                 </figcaption>
             </figure>
         </div>
@@ -25,7 +25,7 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
 
 function ProductList() {
     return (
-        <div className="container">
+        <div className="container mt-4">
             <div className="row">
                 <ProductCard
                     imgSrc="https://res.cloudinary.com/postedin/image/upload/v1/a97433f3-e53e-494e-9492-ec78cc570aad/webpnet-resizeimage-5"

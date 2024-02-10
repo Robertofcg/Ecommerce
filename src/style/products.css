@@ -52,7 +52,7 @@ a {
 
 .card-product-grid .title {
     color: #6a6f74;
-    height: 2.6rem;
+    height: auto;
     font-weight: 600;
     font-size: 14px;
     display: -webkit-box;
@@ -60,6 +60,7 @@ a {
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 0.15rem;
+    text-decoration: none;
 }
 
 [class*=card-product-grid] .price {
