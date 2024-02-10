@@ -3,7 +3,7 @@
 const productos = () => {
     return (
         <div>
-Productos 2
+Productos 22
         </div>
     );
 }
