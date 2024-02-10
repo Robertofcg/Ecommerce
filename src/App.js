@@ -4,6 +4,7 @@ import './style/carrucel.css';
 import './style/targetas.css';
 import './style/botonWsp.css';
 import './style/carrito.css';
+import './style/products.css';
 
 import React from 'react';
 import Navbar from './components/navbar';
