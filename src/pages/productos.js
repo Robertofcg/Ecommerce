@@ -4,20 +4,23 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
     return (
         <div className="col-6 col-sm-6 col-md-4 col-lg-3 col-lg-five mb-4">
             <figure className="card card-product-grid h-100">
-                <div className="img-wrap rounded bg-gray-light">
+                <div className="img-wrap rounded bg-light">
                     <span className="topbar">
                         <span className="badge tag-discount">-20%</span>
                     </span>
                     <img className="mix-blend-mode" src={imgSrc} alt={title} />
                 </div>
-                <figcaption className="card-product-info">
+                <figcaption className="card-product-info m-3">
                     <a href="/" className="title">{title}</a>
                     <div className="price-wrap">
                         <span className="price">${price}</span>
                         <del className="discount-price">${discountPrice}</del>
                     </div>
-                    <button className="btn btn-lg btn-outline-danger w-100 mt-2 agregarCarrito">Agregar a carrito</button>
                 </figcaption>
+                <footer className="card-footer">
+                    <button className="btn btn-lg btn-outline-danger w-100 mt-2 agregarCarrito">Agregar a carrito</button>
+                </footer>
+
             </figure>
         </div>
     );
@@ -25,7 +28,7 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
 
 function ProductList() {
     return (
-        <div className="container mt-4">
+        <div className="container mt-4 app-container">
             <div className="row">
                 <ProductCard
                     imgSrc="https://res.cloudinary.com/postedin/image/upload/v1/a97433f3-e53e-494e-9492-ec78cc570aad/webpnet-resizeimage-5"

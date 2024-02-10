@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 /* src/App.css */
-
 html {
   font-size: 62.5%;
   height: 100vh;
+  background-color: black;
+
 
 }
 
@@ -13,7 +14,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #e9edf1;
+  background-color: black;
   font-family: "Nunito", sans-serif;
 }
 
