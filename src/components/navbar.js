@@ -60,7 +60,7 @@ const Navbar = () => {
                     </svg>
                     <ul className="miLista">
                         <li className="miItem">
-                            <NavLink to="/Ecommerce" activeclassname="active">
+                            <NavLink to="/" activeclassname="active">
                                 Inicio
                             </NavLink>
 

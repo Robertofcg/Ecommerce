@@ -21,7 +21,7 @@ function App() {
       <Navbar />
       <div className="content-wrapper" style={{ flex: 1 }}>
         <Routes>
-          <Route path="/Ecommerce" element={<Inicio />} />
+          <Route path="/" element={<Inicio />} />
           <Route path="/catalogo" element={<Catalogo />} />        
         </Routes>
       </div>
