@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 
 function ProductCard({ imgSrc, title, price, discountPrice }) {
     return (
@@ -18,7 +19,7 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
                     </div>
                 </figcaption>
                 <footer className="card-footer">
-                    <button className="btn btn-lg btn-outline-danger w-100 mt-2 agregarCarrito">Agregar a carrito</button>
+                    <button className="btn btn-lg btn-outline-dark w-100 mt-2 agregarCarrito">Agregar a carrito</button>
                 </footer>
 
             </figure>
@@ -27,39 +28,38 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
 }
 
 function ProductList() {
+    const [productos, setProductos] = useState([]);
+
+    const obtenerProductos = async () => {
+        try {
+            const token = localStorage.getItem('token'); // Obtener el token almacenado localmente
+            const response = await Axios.get("https://ecommerce-k96h.onrender.com/ProductRoute/getProducts", {
+                headers: {
+                    Authorization: `Bearer ${token}` // Agregar el token al encabezado de autorización
+                }
+            });
+            console.log(response.data);
+            setProductos(response.data);
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+        }
+    };
+
+    useEffect(() => {
+        obtenerProductos();
+    }, []);
     return (
         <div className="container mt-4 app-container">
             <div className="row">
-                <ProductCard
-                    imgSrc="https://res.cloudinary.com/postedin/image/upload/v1/a97433f3-e53e-494e-9492-ec78cc570aad/webpnet-resizeimage-5"
-                    title="Lámpara de Techo Industrial"
-                    price="39.99"
-                    discountPrice="49.99"
-                />
-                <ProductCard
-                    imgSrc="https://cdn1.coppel.com/images/catalog/mkp/701/3000/7012281-1.jpg"
-                    title="Lámpara de Pie Moderna"
-                    price="49.99"
-                    discountPrice="59.99"
-                />
-                <ProductCard
-                    imgSrc="https://calux.com.mx/1901-large_default/h5010-s.jpg"
-                    title="Lámpara de Pared Decorativa"
-                    price="29.99"
-                    discountPrice="39.99"
-                />
-                <ProductCard
-                    imgSrc="https://wio360.com/wp-content/uploads/2020/06/consejos-iluminacion-fotografia-de-producto.jpg"
-                    title="Foco LED de Techo"
-                    price="19.99"
-                    discountPrice="24.99"
-                />
-                <ProductCard
-                    imgSrc="https://www.steren.com.mx/media/catalog/category/LAM-825_x1.jpg"
-                    title="Lámpara de Mesa Clásica"
-                    price="34.99"
-                    discountPrice="44.99"
-                />
+                {productos.map((producto, index) => (
+                    <ProductCard
+                        key={index}
+                        imgSrc="https://res.cloudinary.com/postedin/image/upload/v1/a97433f3-e53e-494e-9492-ec78cc570aad/webpnet-resizeimage-5"
+                        title={producto.nombre}
+                        price={producto.precio}
+                        discountPrice="49.99"
+                    />
+                ))}
             </div>
         </div>
     );
