@@ -1,104 +1,91 @@
 /*  CSS DE CARRITO */
 
 .popup-container {
-    position: relative;
-  }
-  
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo semitransparente */
-    z-index: 9998;
-    /* Z-index ligeramente inferior al de la ventana flotante */
-  }
-  
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 800px;
-    height: 90%;
-    max-height: 700px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .popup-inner {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .footer {
-    text-align: center;
-    margin-top: auto; /* Empuja el pie de página hacia abajo */
-    margin-bottom: 0; /* Asegura que no haya espacio adicional debajo del pie de página */
-  }
-  
-  
-  .popup .btn-close {
-    position: absolute;
-    top: -5px;
-    /* Ajusta la distancia desde la parte superior */
-    right: 10px;
-    /* Ajusta la distancia desde el lado derecho */
-  }
-  
-  .Titulo-carrito{
-    font-size: 30px;
-  }
+  position: relative;
+}
 
-  .boton-carrito{
-    font-size: 15px;
-    border: none;
-    background-color: rgb(27, 118, 255);
-    height: 35px;
-  }
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  z-index: 9998;
+  /* Z-index ligeramente inferior al de la ventana flotante */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  max-height: 700px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-inner {
+  flex: 1;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  margin-top: auto;
+  /* Empuja el pie de página hacia abajo */
+  margin-bottom: 0;
+  /* Asegura que no haya espacio adicional debajo del pie de página */
+}
+
+
+.popup .btn-close {
+  position: absolute;
+  top: -5px;
+  /* Ajusta la distancia desde la parte superior */
+  right: 10px;
+  /* Ajusta la distancia desde el lado derecho */
+}
+
+.Titulo-carrito {
+  font-size: 30px;
+}
+
+.boton-carrito {
+  font-size: 15px;
+  border: none;
+  background-color: rgb(27, 118, 255);
+  height: 35px;
+}
 
 /* CSS PARA LA TABLA */
 .table img {
   max-width: 100%;
   height: 0 auto;
   display: block;
-  margin: 0 auto; /* Esto centra horizontalmente la imagen */
+  margin: 0 auto;
+  /* Esto centra horizontalmente la imagen */
 }
 
 /* CSS PARA LA TABLA */
 .table td {
-  text-align: center; /* Esto centrará horizontalmente el contenido de las celdas */
-  vertical-align: middle; /* Esto centrará verticalmente el contenido de las celdas */
-}
-/* CSS PARA LOS BOTONES DE CANTIDAD */
-.table td .cantidad-buttons {
-  align-items: center; /* Alinea los elementos verticalmente */
-}
-
-/* CSS PARA LOS BOTONES */
-.table td .cantidad-buttons button {
-  margin: 0 5px; /* Ajusta el espacio entre los botones y la cantidad */
-  width: 30px; /* Ancho fijo para los botones */
-  height: 30px; /* Altura fija para los botones */
-  font-size: 1rem; /* Tamaño de fuente inicial */
-}
-
-@media screen and (max-width: 480px) {
-  /* Estilos para pantallas aún más pequeñas */
-  .table td .cantidad-buttons button {
-      width: 5px; /* Reducir aún más el ancho de los botones */
-      height: 20px; /* Reducir aún más la altura de los botones */
-      font-size: 0.1rem; /* Reducir aún más el tamaño de fuente */
-  }
+  text-align: center;
+  /* Esto centrará horizontalmente el contenido de las celdas */
+  vertical-align: middle;
+  /* Esto centrará verticalmente el contenido de las celdas */
 }
 
 
 
-
+.selec {
+  border-bottom: 1px solid black;
+  /* Puedes ajustar el grosor y el color de la línea según tus preferencias */
+}

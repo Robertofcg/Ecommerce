@@ -144,17 +144,11 @@ const Navbar = () => {
                     <div className="popup-overlay" onClick={togglePopup}></div>
                     <div className="popup">
                         <button onClick={togglePopup} className='btn btn-close d-flex justify-content-end'></button>
-                        <div className="popup-inner">
-                            <h1 className='Titulo-carrito'>Carrito</h1>
-                            <p className='fs-3'>Productos seleccionados</p>
-                            <table className="table ">
-                                <thead>
-                                    <tr className='fs-4'>
-                                        <th>imagen</th>
-                                        <th colSpan={2}>Nombre</th>
-                                        <th>Subtotal</th>
-                                    </tr>
-                                </thead>
+                        <div className="popup-inner table-responsive">
+                            <h1 className='Titulo-carrito'>Carrito de compras</h1>
+                            <p className='fs-3 selec'>Productos seleccionados</p>
+                            <table className="table table-hover">
+
                                 <tbody>
                                     {productos.map((producto, index) => (
                                         <tr key={index}>
@@ -182,7 +176,7 @@ const Navbar = () => {
                                                     ))}
                                                     <option value={-1}>Otro</option>
                                                 </select>
-                                            </td>                                   
+                                            </td>
 
                                             <td className='fs-3'>${(producto.Precio) * (producto.Cantidad)}</td>
 
@@ -191,7 +185,15 @@ const Navbar = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="footer fixed-bottom bg-light">
+                        <div className="footer fixed-bottom bg-light shadow">
+                            <div className='container shadow border'>
+                                <div>
+                                    <p className='fs-1 d-flex justify-content-first'>
+                                        Total:
+                                    </p>
+                                </div>
+
+                            </div>
                             <div className="col-sm-12 col-md-12 col-lg-12 d-grid">
                                 <button type="submit" id="btnRegistrar" className="btn-block text-white boton-carrito" onClick={enviarMensaje}>Mandar corizacion</button>
                             </div>
