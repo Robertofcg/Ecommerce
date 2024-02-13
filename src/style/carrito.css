@@ -63,3 +63,42 @@
     background-color: rgb(27, 118, 255);
     height: 35px;
   }
+
+/* CSS PARA LA TABLA */
+.table img {
+  max-width: 100%;
+  height: 0 auto;
+  display: block;
+  margin: 0 auto; /* Esto centra horizontalmente la imagen */
+}
+
+/* CSS PARA LA TABLA */
+.table td {
+  text-align: center; /* Esto centrará horizontalmente el contenido de las celdas */
+  vertical-align: middle; /* Esto centrará verticalmente el contenido de las celdas */
+}
+/* CSS PARA LOS BOTONES DE CANTIDAD */
+.table td .cantidad-buttons {
+  align-items: center; /* Alinea los elementos verticalmente */
+}
+
+/* CSS PARA LOS BOTONES */
+.table td .cantidad-buttons button {
+  margin: 0 5px; /* Ajusta el espacio entre los botones y la cantidad */
+  width: 30px; /* Ancho fijo para los botones */
+  height: 30px; /* Altura fija para los botones */
+  font-size: 1rem; /* Tamaño de fuente inicial */
+}
+
+@media screen and (max-width: 480px) {
+  /* Estilos para pantallas aún más pequeñas */
+  .table td .cantidad-buttons button {
+      width: 5px; /* Reducir aún más el ancho de los botones */
+      height: 20px; /* Reducir aún más la altura de los botones */
+      font-size: 0.1rem; /* Reducir aún más el tamaño de fuente */
+  }
+}
+
+
+
+

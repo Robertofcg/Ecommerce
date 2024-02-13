@@ -4,6 +4,7 @@ const BotonWsp = () => {
     const numero = "9513978560"; // Número de teléfono fijo
 
     const enviarMensaje = () => {
+        const productos = JSON.parse(localStorage.getItem('productos')) || [];
         const enlace = `https://api.whatsapp.com/send?phone=${numero}`;
         window.open(enlace, '_blank').focus();
     };

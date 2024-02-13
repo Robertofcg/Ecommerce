@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
-function ProductCard({ imgSrc, title, price, discountPrice }) {
+function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarrito, product }) {
     return (
         <div className="col-6 col-sm-6 col-md-4 col-lg-3 col-lg-five mb-4">
             <figure className="card card-product-grid h-100">
@@ -9,6 +9,7 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
                     <span className="topbar">
                         <span className="badge tag-discount">-20%</span>
                     </span>
+                    {/* Mostrar la imagen utilizando la URL base64 proporcionada */}
                     <img className="mix-blend-mode" src={imgSrc} alt={title} />
                 </div>
                 <figcaption className="card-product-info m-3">
@@ -19,9 +20,8 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
                     </div>
                 </figcaption>
                 <footer className="card-footer">
-                    <button className="btn btn-lg btn-outline-dark w-100 mt-2 agregarCarrito">Agregar a carrito</button>
+                    <button className="btn btn-lg btn-outline-dark w-100 mt-2 agregarCarrito" onClick={() => agregarProductoCarrito(product)}>Agregar a carrito</button>
                 </footer>
-
             </figure>
         </div>
     );
@@ -29,15 +29,11 @@ function ProductCard({ imgSrc, title, price, discountPrice }) {
 
 function ProductList() {
     const [productos, setProductos] = useState([]);
+    const [productosCarrito, setProductosCarrito] = useState([]);
 
     const obtenerProductos = async () => {
         try {
-            const token = localStorage.getItem('token'); // Obtener el token almacenado localmente
-            const response = await Axios.get("https://ecommerce-k96h.onrender.com/ProductRoute/getProducts", {
-                headers: {
-                    Authorization: `Bearer ${token}` // Agregar el token al encabezado de autorización
-                }
-            });
+            const response = await Axios.get("https://ecommerce-k96h.onrender.com/ProductRoute/getProducts");
             console.log(response.data);
             setProductos(response.data);
         } catch (error) {
@@ -45,19 +41,39 @@ function ProductList() {
         }
     };
 
+    const agregarProductoCarrito = (product) => {
+        let listaProductos = JSON.parse(localStorage.getItem('productos')) || []; // Obtener la lista de productos almacenados
+        const existingProductIndex = listaProductos.findIndex(p => p.ID === product.ID);
+
+        if (existingProductIndex !== -1) {
+            // Si el producto ya está en el carrito, actualiza su cantidad
+            listaProductos[existingProductIndex].Cantidad++;
+        } else {
+            // Si el producto no está en el carrito, agrégalo con cantidad 1
+            product.Cantidad = 1;
+            listaProductos.push(product);
+        }
+
+        localStorage.setItem('productos', JSON.stringify(listaProductos)); // Guardar la lista actualizada en localStorage
+        console.log(`Producto agregado al Local Storage: ${product.Nombre}`);
+    };
+
     useEffect(() => {
         obtenerProductos();
     }, []);
+
     return (
         <div className="container mt-4 app-container">
             <div className="row">
                 {productos.map((producto, index) => (
                     <ProductCard
                         key={index}
-                        imgSrc="https://res.cloudinary.com/postedin/image/upload/v1/a97433f3-e53e-494e-9492-ec78cc570aad/webpnet-resizeimage-5"
-                        title={producto.nombre}
-                        price={producto.precio}
+                        title={producto.Nombre}
+                        price={producto.Precio}
                         discountPrice="49.99"
+                        agregarProductoCarrito={agregarProductoCarrito}
+                        product={producto}
+                        imgSrc={`data:image/png;base64, ${producto.ImagenBase64}`} // Utilizar la URL base64 proporcionada en los datos del producto
                     />
                 ))}
             </div>
