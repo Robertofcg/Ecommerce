@@ -5,6 +5,7 @@ import './style/targetas.css';
 import './style/botonWsp.css';
 import './style/carrito.css';
 import './style/products.css';
+import './style/vistaProducto.css';
 
 import React from 'react';
 import Navbar from './components/navbar';
@@ -15,6 +16,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Routes, Route } from 'react-router-dom';
 import Inicio from './pages/inicio';
 import Catalogo from './pages/productos';
+import VistaProductos from './pages/vistaProducto';
 
 function App() {
   return (
@@ -23,7 +25,8 @@ function App() {
       <div className="content-wrapper" style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/catalogo" element={<Catalogo />} />        
+          <Route path="/catalogo" element={<Catalogo />} />   
+          <Route path="/vistaProductos/:id" element={<VistaProductos />} />      
         </Routes>
       </div>
       <Wsp />

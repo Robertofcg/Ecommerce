@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import Axios from 'axios';
 
 function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarrito, product }) {
@@ -7,16 +10,21 @@ function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarri
             <figure className="card card-product-grid h-100">
                 <div className="img-wrap rounded bg-light">
                     <span className="topbar">
-                        <span className="badge tag-discount">-20%</span>
+                        {/* <span className="badge tag-discount">-20%</span> */}
                     </span>
                     {/* Mostrar la imagen utilizando la URL base64 proporcionada */}
-                    <img className="mix-blend-mode" src={imgSrc} alt={title} />
+                    <a href="/#/vistaProductos">
+                        <img className="mix-blend-mode" src={imgSrc} alt={title} />
+                    </a>
                 </div>
                 <figcaption className="card-product-info m-3">
-                    <a href="/" className="title">{title}</a>
+                    <Link to={`/vistaProductos/${product.ID}`} className='title'>
+                        {title}
+                    </Link>
+
                     <div className="price-wrap">
                         <span className="price">${price}</span>
-                        <del className="discount-price">${discountPrice}</del>
+                        {/* <del className="discount-price">${discountPrice}</del> */}
                     </div>
                 </figcaption>
                 <footer className="card-footer">
@@ -29,7 +37,6 @@ function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarri
 
 function ProductList() {
     const [productos, setProductos] = useState([]);
-    const [productosCarrito, setProductosCarrito] = useState([]);
 
     const obtenerProductos = async () => {
         try {
