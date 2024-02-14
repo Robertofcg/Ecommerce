@@ -11,24 +11,21 @@ const Navbar = () => {
 
     const enviarMensaje = () => {
         const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        const mensaje = `Hola, me gustaría realizar una cotización. Productos seleccionados: ${productos.map(producto => producto.Nombre).join(', ')}`;
+        const mensaje = `Hola, me gustaría realizar una cotización. Productos seleccionados:\n${productos.map(producto => `${producto.Nombre} (${producto.Cantidad} x $${producto.Precio} = $${producto.Cantidad * producto.Precio})`).join('\n')}`;
         const enlace = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
         window.open(enlace, '_blank').focus();
     };
-    // Función para obtener los productos del carrito del localStorage y actualizar el estado productos
+    
+
     const obtenerProductosCarrito = () => {
         const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
         setProductos(productosGuardados);
     };
 
     const eliminarProducto = (index) => {
-        // Copiar el arreglo de productos actual
         const nuevosProductos = [...productos];
-        // Eliminar el producto del arreglo copiado
         nuevosProductos.splice(index, 1);
-        // Actualizar el estado con el nuevo arreglo de productos
         setProductos(nuevosProductos);
-        // Actualizar el localStorage
         localStorage.setItem('productos', JSON.stringify(nuevosProductos));
     };
 
@@ -51,10 +48,17 @@ const Navbar = () => {
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
-        // Cuando se muestra el popup, actualiza los productos del carrito
         if (!showPopup) {
             obtenerProductosCarrito();
         }
+    };
+
+    const calcularTotal = (productos) => {
+        let total = 0;
+        productos.forEach(producto => {
+            total += producto.Precio * producto.Cantidad;
+        });
+        return total;
     };
 
     useEffect(() => {
@@ -187,11 +191,11 @@ const Navbar = () => {
                         </div>
                         <div className="footer fixed-bottom bg-light shadow">
                             <div className='container shadow border'>
-                                <div>
-                                    <p className='fs-1 d-flex justify-content-first'>
-                                        Total:
-                                    </p>
+                                <div className='fs-2 d-flex'>
+                                    <span className='flex-grow-1 d-flex justify-content-first'>Total:</span>
+                                    <span>${calcularTotal(productos)}</span>
                                 </div>
+
 
                             </div>
                             <div className="col-sm-12 col-md-12 col-lg-12 d-grid">
