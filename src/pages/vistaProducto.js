@@ -46,7 +46,7 @@ function VistaProductos() {
 
                             <div class="carousel-item active">
                                 <div class="image-container">
-                                    <img src="https://cdn.wallpapersafari.com/78/18/l1RySF.jpg" class="custom-NewYork" alt="New York" />
+                                    <img src={`data:image/png;base64, ${producto.imagenes_adicionales}`} class="custom-NewYork" alt="New York" />
                                     <div class="carousel-caption">
                                         <h3>New York</h3>
                                         <p>We love the Big Apple!</p>
