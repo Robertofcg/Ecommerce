@@ -81,7 +81,7 @@ function ProductList() {
                             </div>
                             <div className='row'>
                                 <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Vida Util:</b> {productos[0].VidaUtil}</span>
+                                    <span className='fs-3 mx-3'><b>Vida Util:</b> {productos[0].VidaUtil}</span>
                                 </div>
                                 <div className='col-6'>
                                     <span className='fs-3'><b>Dimensiones:</b> {productos[0].Dimensiones}</span>
