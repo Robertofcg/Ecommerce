@@ -55,7 +55,7 @@ function ProductList() {
                             <h1 className='m-4'>{productos[0].Nombre}</h1>
                             <h1 className='fs-1 mx-4'>{productos[0].Precio}</h1>
 
-                            <div className='row'>
+                            <div className='row mb-2'>
                                 <div className='col-6'>
                                     <span className='fs-3 mx-4'><b>Marca:</b> {productos[0].Marca}</span>
                                 </div>
@@ -63,7 +63,7 @@ function ProductList() {
                                     <span className='fs-3'><b>Modelo:</b> {productos[0].Modelo}</span>
                                 </div>
                             </div>
-                            <div className='row'>
+                            <div className='row mb-2'>
                                 <div className='col-6'>
                                     <span className='fs-3 mx-4'><b>Voltaje:</b> {productos[0].Voltaje}</span>
                                 </div>
@@ -71,23 +71,24 @@ function ProductList() {
                                     <span className='fs-3'><b>Potencia:</b> {productos[0].Potencia}</span>
                                 </div>
                             </div>
-                            <div className='row'>
+                            <div className='row mb-2'>
                                 <div className='col-6'>
                                     <span className='fs-3 mx-4'><b>Lúmenes:</b> {productos[0].Lumenes}</span>
                                 </div>
                                 <div className='col-6'>
-                                    <span className='fs-3'><b>Atenuable:</b> {productos[0].Atenuable}</span>
+                                    <span className='fs-3'><b>Vida Util:</b><span>{productos[0].VidaUtil}</span></span>
                                 </div>
                             </div>
-                            <div className='row'>
+                            <div className='row mb-2'>
                                 <div className='col-6'>
-                                    <span className='fs-3 mx-3'><b>Vida Util:</b> {productos[0].VidaUtil}</span>
+                                    <span className='fs-3 mx-4'><b>Atenuable:</b> {productos[0].Atenuable}</span>
+
                                 </div>
                                 <div className='col-6'>
                                     <span className='fs-3'><b>Dimensiones:</b> {productos[0].Dimensiones}</span>
                                 </div>
                             </div>
-                            <div className='row'>
+                            <div className='row mb-2'>
                                 <div className='col-6'>
                                     <span className='fs-3 mx-4'><b>Ángulo:</b> {productos[0].Angulo}</span>
                                 </div>
