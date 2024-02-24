@@ -24,7 +24,7 @@ function ProductList() {
         <div className='container bg-white'>
             <div className='row selec mb-5'>
                 <div className='col-lg-6'>
-                    <div className="container app-container">
+                    <div className="container app-container mt-3">
                         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 {productos.map((producto, index) => (
@@ -60,51 +60,64 @@ function ProductList() {
                             <h1 className='m-4' style={{ color: '#6a6f74' }}>{productos[0].Nombre}</h1>
                             <h1 className='fs-1 mx-4'>$ {productos[0].Precio}</h1>
 
-                            <div className='row mb-2'>
+                            <div className='row mb-2 fs-4 mt-5'>
                                 <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Marca:</b> {productos[0].Marca}</span>
+                                    <table className='table table-striped'>
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Marca:</b></td>
+                                                <td>{productos[0].Marca}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Voltaje:</b></td>
+                                                <td>{productos[0].Voltaje}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Lúmenes:</b></td>
+                                                <td>{productos[0].Lumenes}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Atenuable:</b></td>
+                                                <td>{productos[0].Atenuable}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Ángulo:</b></td>
+                                                <td>{productos[0].Angulo}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div className='col-6'>
-                                    <span className='fs-3'><b>Modelo:</b> {productos[0].Modelo}</span>
+                                    <table className='table table-striped'>
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Modelo:</b></td>
+                                                <td>{productos[0].Modelo}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Potencia:</b></td>
+                                                <td>{productos[0].Potencia}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Vida Util:</b></td>
+                                                <td>{productos[0].VidaUtil}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Dimensiones:</b></td>
+                                                <td>{productos[0].Dimensiones}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div className='row mb-2'>
-                                <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Voltaje:</b> {productos[0].Voltaje}</span>
-                                </div>
-                                <div className='col-6'>
-                                    <span className='fs-3'><b>Potencia:</b> {productos[0].Potencia}</span>
-                                </div>
-                            </div>
-                            <div className='row mb-2'>
-                                <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Lúmenes:</b> {productos[0].Lumenes}</span>
-                                </div>
-                                <div className='col-6'>
-                                    <span className='fs-3'><b>Vida Util:</b><span> {productos[0].VidaUtil}</span></span>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Atenuable:</b> {productos[0].Atenuable}</span>
 
-                                </div>
-                                <div className='col-6'>
-                                    <span className='fs-3'><b>Dimensiones:</b> {productos[0].Dimensiones}</span>
-                                </div>
-                            </div>
-                            <div className='row mb-2'>
-                                <div className='col-6'>
-                                    <span className='fs-3 mx-4'><b>Ángulo:</b> {productos[0].Angulo}</span>
-                                </div>
-                            </div>
                         </>
                     )}
                 </div>
             </div>
             {productos.length > 0 && (
                 <div className='row mb-2'>
-                    <span className='fs-2 mx-4'><b>Descripcion:<br></br></b>{productos[0].Descripcion}</span>
+                    <span className='fs-2 mx-4'><b>Descripcion:</b><br></br><span className='fs-4'>{productos[0].Descripcion}</span></span>
                 </div>
             )}
         </div>
