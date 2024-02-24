@@ -37,6 +37,7 @@ function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarri
 
 function ProductList() {
     const [productos, setProductos] = useState([]);
+    const [buscar, setBuscar] = useState("");
 
     const obtenerProductos = async () => {
         try {
@@ -65,14 +66,35 @@ function ProductList() {
         console.log(`Producto agregado al Local Storage: ${product.Nombre}`);
     };
 
+    const eliminarAcentos = (cadena) => {
+        return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+    
+    const buscador = (e) => {
+        setBuscar(eliminarAcentos(e.target.value.toLowerCase()));
+        console.log(e.target.value);
+    };
+    
+    let resultados = [];
+    if (!buscar) {
+        resultados = productos;
+    } else {
+        resultados = productos.filter((dato) =>
+            eliminarAcentos(dato.Nombre.toLowerCase()).includes(buscar)
+        );
+    }
+    
+
+
     useEffect(() => {
         obtenerProductos();
     }, []);
 
     return (
         <div className="container mt-4 app-container">
+            <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
             <div className="row">
-                {productos.map((producto, index) => (
+                {resultados.map((producto, index) => (
                     <ProductCard
                         key={index}
                         title={producto.Nombre}
