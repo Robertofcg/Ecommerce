@@ -15,7 +15,7 @@ const Navbar = () => {
         const enlace = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
         window.open(enlace, '_blank').focus();
     };
-    
+
 
     const obtenerProductosCarrito = () => {
         const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
@@ -178,11 +178,13 @@ const Navbar = () => {
                                                     {[...Array(6).keys()].map((cantidad) => (
                                                         <option key={cantidad} value={cantidad + 1}>{cantidad + 1 + " u."}</option>
                                                     ))}
+                                                    {producto.Cantidad > 6 && <option value={producto.Cantidad}>{producto.Cantidad + " u."}</option>} {/* Removido */}
                                                     <option value={-1}>Otro</option>
                                                 </select>
+
                                             </td>
 
-                                            <td className='fs-3'>${(producto.Precio) * (producto.Cantidad)}</td>
+                                            <td className='fs-3'>${(producto.Precio) * (producto.Cantidad).toFixed(2)}</td>
 
                                         </tr>
                                     ))}
@@ -193,7 +195,7 @@ const Navbar = () => {
                             <div className='container shadow border'>
                                 <div className='fs-2 d-flex'>
                                     <span className='flex-grow-1 d-flex justify-content-first'>Total:</span>
-                                    <span>${calcularTotal(productos)}</span>
+                                    <span>${calcularTotal(productos).toFixed(2)}</span>
                                 </div>
 
 
