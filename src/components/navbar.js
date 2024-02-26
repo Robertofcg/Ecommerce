@@ -167,8 +167,11 @@ const Navbar = () => {
                                                         const newValue = parseInt(e.target.value);
                                                         if (newValue === -1) {
                                                             const newAmount = parseInt(window.prompt('Ingrese la cantidad:'));
-                                                            if (!isNaN(newAmount) && newAmount > 0) {
+                                                            if (!isNaN(newAmount) && newAmount > 0 && newAmount < 20) {
                                                                 cambiarCantidad(index, newAmount);
+                                                            } else {
+                                                                const mensaje = alert('No puede ingresar mas de 20 productos');
+
                                                             }
                                                         } else {
                                                             cambiarCantidad(index, newValue);
@@ -178,13 +181,13 @@ const Navbar = () => {
                                                     {[...Array(6).keys()].map((cantidad) => (
                                                         <option key={cantidad} value={cantidad + 1}>{cantidad + 1 + " u."}</option>
                                                     ))}
-                                                    {producto.Cantidad > 6 && <option value={producto.Cantidad}>{producto.Cantidad + " u."}</option>} {/* Removido */}
+                                                    {producto.Cantidad > 6 && <option value={producto.Cantidad}>{producto.Cantidad + " u."}</option>}
                                                     <option value={-1}>Otro</option>
                                                 </select>
 
                                             </td>
 
-                                            <td className='fs-3'>${(producto.Precio) * (producto.Cantidad).toFixed(2)}</td>
+                                            <td className='fs-3'>${((producto.Precio) * (producto.Cantidad)).toFixed(2)}</td>
 
                                         </tr>
                                     ))}

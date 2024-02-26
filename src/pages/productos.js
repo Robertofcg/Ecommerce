@@ -3,45 +3,41 @@ import { NavLink } from 'react-router-dom';
 
 import Axios from 'axios';
 
-function ProductCard({ imgSrc, title, price, discountPrice, agregarProductoCarrito, product }) {
-    return (
-        <div className="col-6 col-sm-6 col-md-4 col-lg-3 col-lg-five mb-4">
-            <figure className="card card-product-grid">
-                <div className="img-wrap rounded bg-light">
-                    <span className="topbar">
-                        {/* <span className="badge tag-discount">-20%</span> */}
-                    </span>
-                    <NavLink to={`/vistaProductos/${product.ID}`} activeclassname="active">
-                        <img className="mix-blend-mode" src={imgSrc} alt={title} />
-                    </NavLink>
-                </div>
-                <figcaption className="card-product-info m-3">
-                    <NavLink to={`/vistaProductos/${product.ID}`} activeclassname="active" className='title'>
-                        {title}
-                    </NavLink>
-
-                    <div className="price-wrap">
-                        <span className="price">${price}</span>
-                        {/* <del className="discount-price">${discountPrice}</del> */}
-                    </div>
-                </figcaption>
-                <footer className="card-footer">
-                    <button className="btn btn-lg btn-outline-dark w-100 mt-2 agregarCarrito" onClick={() => agregarProductoCarrito(product)}>Agregar a carrito</button>
-                </footer>
-            </figure>
-        </div>
-        
-    );
-}
-
 function ProductList() {
     const [productos, setProductos] = useState([]);
     const [buscar, setBuscar] = useState("");
+    const [categoria, setCategoria] = useState({
+        led1: false,
+        led2: false
+    });
+
+    const [datosFiltrados, setDatosFiltrados] = useState([]);
+
+    const filtrarProductos = () => {
+        let productosFiltrados = [...productos];
+
+        // Filtrar por categoría
+        if (categoria.led1 || categoria.led2) {
+            productosFiltrados = productosFiltrados.filter(item => {
+                if (categoria.led1 && item.Categoria === "led1") return true;
+                if (categoria.led2 && item.Categoria === "led2") return true;
+                return false;
+            });
+        }
+
+        // Filtrar por búsqueda
+        if (buscar) {
+            productosFiltrados = productosFiltrados.filter(item =>
+                eliminarAcentos(item.Nombre.toLowerCase()).includes(buscar)
+            );
+        }
+
+        setDatosFiltrados(productosFiltrados);
+    };
 
     const obtenerProductos = async () => {
         try {
             const response = await Axios.get("https://ecommerce-k96h.onrender.com/ProductRoute/getProducts");
-            console.log(response.data);
             setProductos(response.data);
         } catch (error) {
             console.error('Error al obtener productos:', error);
@@ -54,7 +50,12 @@ function ProductList() {
 
         if (existingProductIndex !== -1) {
             // Si el producto ya está en el carrito, actualiza su cantidad
-            listaProductos[existingProductIndex].Cantidad++;
+            if (listaProductos[existingProductIndex].Cantidad < 20) {
+                listaProductos[existingProductIndex].Cantidad++;
+                console.log("tamaño de lista: " + listaProductos[existingProductIndex].Cantidad);
+            } else {
+                console.log(`Ya no se puede agregar`);
+            }
         } else {
             // Si el producto no está en el carrito, agrégalo con cantidad 1
             product.Cantidad = 1;
@@ -69,43 +70,66 @@ function ProductList() {
         return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     };
 
-    const buscador = (e) => {
-        setBuscar(eliminarAcentos(e.target.value.toLowerCase()));
-        console.log(e.target.value);
+    const handleOnCheckbox = (e) => {
+        setCategoria({
+            ...categoria,
+            [e.target.value]: e.target.checked,
+        });
     };
 
-    let resultados = [];
-    if (!buscar) {
-        resultados = productos;
-    } else {
-        resultados = productos.filter((dato) =>
-            eliminarAcentos(dato.Nombre.toLowerCase()).includes(buscar)
-        );
-    }
+    const buscador = (e) => {
+        setBuscar(eliminarAcentos(e.target.value.toLowerCase()));
+    };
 
 
 
     useEffect(() => {
         obtenerProductos();
-    }, []);
+        filtrarProductos();
+
+    }, [productos, categoria, buscar]);
 
     return (
         <div className="container mt-4 app-container">
             <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
+
             <div className="row">
-                {resultados.map((producto, index) => (
-                    <ProductCard
-                        key={index}
-                        title={producto.Nombre}
-                        price={producto.Precio}
-                        discountPrice="49.99"
-                        agregarProductoCarrito={agregarProductoCarrito}
-                        product={producto}
-                        imgSrc={`data:image/png;base64, ${producto.ImagenBase64}`} // Utilizar la URL base64 proporcionada en los datos del producto
-                    />
-                ))}
+                <div className="col-md-2 p-5">
+                    <h2>Categorias</h2>
+                    <input onChange={handleOnCheckbox} type='checkbox' name='filtro' value={'led1'} id='led1'></input><label className='fs-4'> led1</label><br></br>
+                    <input onChange={handleOnCheckbox} type='checkbox' name='filtro' value={'led2'} id='led2'></input><label className='fs-4'> led2</label>
+                </div>
+                <div className="col-md-10">
+                    <div className="row">
+                        {datosFiltrados.map((producto, index) => (
+                            <div className="col-6 col-sm-6 col-md-4 col-lg-3 col-lg-five mb-4" key={index}>
+                                <figure className="card card-product-grid">
+                                    <div className="img-wrap rounded bg-light">
+                                        <span className="topbar"></span>
+                                        <NavLink to={`/vistaProductos/${producto.ID}`} activeclassname="active">
+                                            <img className="mix-blend-mode" src={`data:image/png;base64, ${producto.ImagenBase64}`} alt={producto.Nombre} />
+                                        </NavLink>
+                                    </div>
+                                    <figcaption className="card-product-info m-3">
+                                        <NavLink to={`/vistaProductos/${producto.ID}`} activeclassname="active" className='title'>
+                                            {producto.Nombre}
+                                        </NavLink>
+                                        <div className="price-wrap">
+                                            <span className="price">${producto.Precio}</span>
+                                            {/* <del className="discount-price">$49.99</del> */}
+                                        </div>
+                                    </figcaption>
+                                    <footer className="card-footer">
+                                        <button className="btn btn-lg btn-outline-dark w-100 mt-2 agregarCarrito" onClick={() => agregarProductoCarrito(producto)}>Agregar a carrito</button>
+                                    </footer>
+                                </figure>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
+
     );
 }
 
