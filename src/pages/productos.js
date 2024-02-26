@@ -16,7 +16,6 @@ function ProductList() {
     const filtrarProductos = () => {
         let productosFiltrados = [...productos];
 
-        // Filtrar por categoría
         if (categoria.led1 || categoria.led2) {
             productosFiltrados = productosFiltrados.filter(item => {
                 if (categoria.led1 && item.Categoria === "led1") return true;
@@ -25,7 +24,6 @@ function ProductList() {
             });
         }
 
-        // Filtrar por búsqueda
         if (buscar) {
             productosFiltrados = productosFiltrados.filter(item =>
                 eliminarAcentos(item.Nombre.toLowerCase()).includes(buscar)
@@ -94,10 +92,17 @@ function ProductList() {
             <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
 
             <div className="row">
-                <div className="col-md-2 p-5">
-                    <h2>Categorias</h2>
-                    <input onChange={handleOnCheckbox} type='checkbox' name='filtro' value={'led1'} id='led1'></input><label className='fs-4'> led1</label><br></br>
-                    <input onChange={handleOnCheckbox} type='checkbox' name='filtro' value={'led2'} id='led2'></input><label className='fs-4'> led2</label>
+                <div className="col-md-2 col-sm-12 mb-3 p-2">
+                    <h2 className='m-2'>Categorias</h2>
+                    <div class="form-check form-check-inline fs-3 mx-2">
+                        <input onChange={handleOnCheckbox} class="form-check-input" type="checkbox" name='filtro' id="led1" value={'led1'} />
+                        <label class="form-check-label" for="inlineRadio1">led 1</label>
+                    </div>
+                    <br></br>
+                    <div class="form-check form-check-inline fs-3 mx-2">
+                        <input onChange={handleOnCheckbox} class="form-check-input" type="checkbox" name='filtro' id="led2" value={'led2'} />
+                        <label class="form-check-label" for="inlineRadio2">led 2</label>
+                    </div>
                 </div>
                 <div className="col-md-10">
                     <div className="row">
