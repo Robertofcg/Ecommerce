@@ -13,7 +13,7 @@ const Login = () => {
           const response = await axios.post('https://ecommerce-k96h.onrender.com/ProductRoute/login', { username, password });
           const { token } = response.data;
           localStorage.setItem('token', token);
-          window.location.href = '/dashboard'; 
+          window.location.href = '/Ecommerce/#//dashboard'; 
         } catch (error) {
           if (error.response) {
             setError(error.response.data.message);
