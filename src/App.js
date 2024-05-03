@@ -23,7 +23,7 @@ import RegistrarProducto from './pages/RegistrarProductos';
 
 function App() {
   return (
-    <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <div className="App min-h-screen" style={{ display: "flex", flexDirection: "column"}}>
       <Navbar />
       <div className="content-wrapper" style={{ flex: 1 }}>
         <Routes>
