@@ -3,6 +3,23 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 function RegistroProducto() {
+  const [base64Image, setBase64Image] = useState('');
+
+  const handleInputChange = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      // Convertir la imagen a base64
+      const base64String = reader.result.split(',')[1];
+      setBase64Image(base64String);
+      // Actualizar el campo ImagenBase64 del estado formulario
+      setFormulario({ ...formulario, ImagenBase64: base64String });
+    };
+    reader.readAsDataURL(file);
+  };
+
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token')); // Verifica si hay un token almacenado
 
   const [formulario, setFormulario] = useState({
@@ -65,22 +82,21 @@ function RegistroProducto() {
   };
 
   if (!loggedIn) {
-    return <div className="grid place-items-center">
-      <div className="text-center text-5xl py-60 mx-50 text-blue-900">
-        Necesitas iniciar sesión para acceder a esta página
-        <NavLink to="/login" activeclassname="active">
-          <br></br>
-          <button className="mt-4 cv border-solid border-2 border-blue-900 text-blue-900 text-2xl rounded p-3 hover:bg-blue-900 hover:text-white">
-            <b>
-              Iniciar Sesión
-            </b>
-          </button>
-        </NavLink>
+    return (
+      <div className="grid place-items-center">
+        <div className="text-center text-5xl py-60 mx-50 text-blue-900">
+          Necesitas iniciar sesión para acceder a esta página
+          <NavLink to="/login" activeclassname="active">
+            <br></br>
+            <button className="mt-4 cv border-solid border-2 border-blue-900 text-blue-900 text-2xl rounded p-3 hover:bg-blue-900 hover:text-white">
+              <b>
+                Iniciar Sesión
+              </b>
+            </button>
+          </NavLink>
+        </div>
       </div>
-
-    </div>
-
-
+    );
   }
 
   return (
@@ -98,27 +114,27 @@ function RegistroProducto() {
           </div>
           <div>
             <label htmlFor="Marca" className="block mb-2 font-bold text-gray-600 text-2xl">Marca</label>
-            <input type="text" id="Marca" name="Marca" value={formulario.Marca} onChange={handleChange} placeholder="Marca del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="text" id="Marca" name="Marca" value={formulario.Marca} onChange={handleChange} placeholder="Marca del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Modelo" className="block mb-2 font-bold text-gray-600 text-2xl">Modelo</label>
-            <input type="text" id="Modelo" name="Modelo" value={formulario.Modelo} onChange={handleChange} placeholder="Modelo del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="text" id="Modelo" name="Modelo" value={formulario.Modelo} onChange={handleChange} placeholder="Modelo del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Voltaje" className="block mb-2 font-bold text-gray-600 text-2xl">Voltaje</label>
-            <input type="text" id="Voltaje" name="Voltaje" value={formulario.Voltaje} onChange={handleChange} placeholder="Voltaje del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="text" id="Voltaje" name="Voltaje" value={formulario.Voltaje} onChange={handleChange} placeholder="Voltaje del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Potencia" className="block mb-2 font-bold text-gray-600 text-2xl">Potencia</label>
-            <input type="text" id="Potencia" name="Potencia" value={formulario.Potencia} onChange={handleChange} placeholder="Potencia del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="number" id="Potencia" name="Potencia" value={formulario.Potencia} onChange={handleChange} placeholder="Potencia del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Precio" className="block mb-2 font-bold text-gray-600 text-2xl">Precio</label>
-            <input type="number" id="Precio" name="Precio" value={formulario.Precio} onChange={handleChange} placeholder="Precio del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="number" id="Precio" name="Precio" value={formulario.Precio} onChange={handleChange} placeholder="Precio del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Lumenes" className="block mb-2 font-bold text-gray-600 text-2xl">Lúmenes</label>
-            <input type="number" id="Lumenes" name="Lumenes" value={formulario.Lumenes} onChange={handleChange} placeholder="Lúmenes del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="number" id="Lumenes" name="Lumenes" value={formulario.Lumenes} onChange={handleChange} placeholder="Lúmenes del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Atenuable" className="block mb-2 font-bold text-gray-600 text-2xl">Atenuable</label>
@@ -129,29 +145,29 @@ function RegistroProducto() {
           </div>
           <div>
             <label htmlFor="VidaUtil" className="block mb-2 font-bold text-gray-600 text-2xl">Vida Útil</label>
-            <input type="text" id="VidaUtil" name="VidaUtil" value={formulario.VidaUtil} onChange={handleChange} placeholder="Vida útil del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="text" id="VidaUtil" name="VidaUtil" value={formulario.VidaUtil} onChange={handleChange} placeholder="Vida útil del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Dimensiones" className="block mb-2 font-bold text-gray-600 text-2xl">Dimensiones</label>
-            <input type="text" id="Dimensiones" name="Dimensiones" value={formulario.Dimensiones} onChange={handleChange} placeholder="Dimensiones del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="text" id="Dimensiones" name="Dimensiones" value={formulario.Dimensiones} onChange={handleChange} placeholder="Dimensiones del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div>
             <label htmlFor="Angulo" className="block mb-2 font-bold text-gray-600 text-2xl">Ángulo</label>
-            <input type="number" id="Angulo" name="Angulo" value={formulario.Angulo} onChange={handleChange} placeholder="Ángulo del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" />
+            <input type="number" id="Angulo" name="Angulo" value={formulario.Angulo} onChange={handleChange} placeholder="Ángulo del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" required/>
           </div>
           <div className="col-span-2">
             <label htmlFor="Descripcion" className="block mb-2 font-bold text-gray-600 text-2xl">Descripción</label>
-            <textarea id="Descripcion" name="Descripcion" value={formulario.Descripcion} onChange={handleChange} placeholder="Descripción del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" rows="4"></textarea>
+            <textarea id="Descripcion" name="Descripcion" value={formulario.Descripcion} onChange={handleChange} placeholder="Descripción del producto" className="border border-gray-300 shadow p-3 w-full rounded text-xl" rows="4" required></textarea>
           </div>
           <div className="col-span-2">
-            <label htmlFor="Descripcion" className="block mb-2 font-bold text-gray-600 text-2xl">Descripción</label>
-            <textarea id="ImagenBase64" name="ImagenBase64" value={formulario.ImagenBase64} onChange={handleChange} placeholder="Imagen en base64" className="border border-gray-300 shadow p-3 w-full rounded text-xl" rows="4"></textarea>
+            <label htmlFor="ImagenBase64" className="block mb-2 font-bold text-gray-600 text-2xl">Imagen Base64</label>
+            <input type="file" onChange={handleInputChange} accept="image/*" className="border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-xl rounded-md p-3" required/>
           </div>
+
           <button type="submit" className="col-span-2 w-full block bg-blue-500 text-white font-bold p-4 rounded-lg text-2xl">Registrar Producto</button>
         </form>
       </div>
     </div>
-
   );
 }
 
