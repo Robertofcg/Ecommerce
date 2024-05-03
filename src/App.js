@@ -17,6 +17,9 @@ import { Routes, Route } from 'react-router-dom';
 import Inicio from './pages/inicio';
 import Catalogo from './pages/productos';
 import VistaProductos from './pages/vistaProducto';
+import Login from './pages/login';
+import RegistrarProducto from './pages/RegistrarProductos';
+
 
 function App() {
   return (
@@ -26,7 +29,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/catalogo" element={<Catalogo />} />   
-          <Route path="/vistaProductos/:id" element={<VistaProductos />} />      
+          <Route path="/vistaProductos/:id" element={<VistaProductos />} />  
+          <Route path="/login" element={<Login />} />    
+          <Route path="/registrarProducto" element={<RegistrarProducto />} />    
+
         </Routes>
       </div>
       <Wsp />
