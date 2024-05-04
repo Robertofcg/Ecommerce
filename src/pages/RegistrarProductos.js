@@ -3,7 +3,6 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 function RegistroProducto() {
-  const [base64Image, setBase64Image] = useState('');
   const [additionalImages, setAdditionalImages] = useState([]);
 
   const handleInputChange = (event) => {
@@ -14,7 +13,6 @@ function RegistroProducto() {
     reader.onloadend = () => {
       // Convertir la imagen a base64
       const base64String = reader.result.split(',')[1];
-      setBase64Image(base64String);
       // Actualizar el campo ImagenBase64 del estado formulario
       setFormulario({ ...formulario, ImagenBase64: base64String });
     };
@@ -39,7 +37,11 @@ function RegistroProducto() {
     }
   };
 
-  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token')); // Verifica si hay un token almacenado
+  const token = localStorage.getItem('token');
+  const [loggedIn, setLoggedIn] = useState(!!token); // Verifica si hay un token almacenado
+
+  // Luego, en algún punto donde necesites setear el token:
+  setLoggedIn(!!token); // Esto actualizará el estado de loggedIn
 
   const [formulario, setFormulario] = useState({
     Nombre: '',
@@ -97,7 +99,7 @@ function RegistroProducto() {
       setAdditionalImages([]);
     } catch (error) {
       console.error('Error al registrar el producto:', error);
-      alert('Error al registrar el producto. Por favor, inténtelo de nuevo.');
+      alert('Error al registrar el producto. Por favor, inténtelo de nuevo.', error);
     }
   };
 

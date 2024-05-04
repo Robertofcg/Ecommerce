@@ -40,7 +40,7 @@ function ProductList() {
 
     useEffect(() => {
         obtenerProductos();
-    }, []);
+    });
 
     return (
         <div className='container bg-white' style={{ height: '83vh', overflow: 'auto' }}>
@@ -50,16 +50,14 @@ function ProductList() {
                         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 {productos.map((producto, index) => (
-                                    <div className={`carousel-item mb-3 ${index === 0 ? 'active' : ''}`} key={index} style={{ height: '360px' }}>
+                                    <div className={`carousel-item mb-3 ${index === 0 ? 'active' : ''}`} key={index} style={{ height: '475px' }}>
                                         <div className="img-wrap rounded bg-light" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                                            <a>
-                                                <img
-                                                    src={`data:image/png;base64, ${producto.ImagenBase64}`}
-                                                    className="d-block mix-blend-mode"
-                                                    alt={producto.Nombre}
-                                                    style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-                                                />
-                                            </a>
+                                            <img
+                                                src={`data:image/png;base64, ${producto.ImagenBase64}`}
+                                                className="d-block mix-blend-mode"
+                                                alt={producto.Nombre}
+                                                style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
+                                            />
                                         </div>
                                     </div>
                                 ))}
@@ -154,6 +152,8 @@ function ProductList() {
                     <span className='fs-2 mx-4'><b>Descripcion:</b><br></br><span className='fs-2'>{productos[0].Descripcion}</span></span>
                 </div>
             )}
+
+
         </div>
     );
 }
