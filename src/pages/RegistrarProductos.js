@@ -37,11 +37,7 @@ function RegistroProducto() {
     }
   };
 
-  const token = localStorage.getItem('token');
-  const [loggedIn, setLoggedIn] = useState(!!token); // Verifica si hay un token almacenado
-
-  // Luego, en algún punto donde necesites setear el token:
-  setLoggedIn(!!token); // Esto actualizará el estado de loggedIn
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token')); // Verifica si hay un token almacenado
 
   const [formulario, setFormulario] = useState({
     Nombre: '',
