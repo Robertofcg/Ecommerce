@@ -151,7 +151,7 @@ function ProductList() {
             </div>
             {productos.length > 0 && (
                 <div className='d-flex mb-2'>
-                    <span className='fs-2 mx-4'><b>Descripcion:</b><br></br><span className='fs-2'>{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}{productos[0].Descripcion}</span></span>
+                    <span className='fs-2 mx-4'><b>Descripcion:</b><br></br><span className='fs-2'>{productos[0].Descripcion}</span></span>
                 </div>
             )}
         </div>
