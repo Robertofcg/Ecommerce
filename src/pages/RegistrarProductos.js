@@ -75,7 +75,7 @@ function RegistroProducto() {
         }
       };
       // Realizar la petición POST con Axios
-      await axios.post('http://localhost:88/ProductRoute/registrarProductoConImagenes', { ...formulario, ImagenesAdicionales: additionalImages }, config);
+      await axios.post('https://ecommerce-k96h.onrender.com/ProductRoute/registrarProductoConImagenes', { ...formulario, ImagenesAdicionales: additionalImages }, config);
       alert('Producto registrado con éxito');
       // Limpiar el formulario después de enviar los datos
       setFormulario({
