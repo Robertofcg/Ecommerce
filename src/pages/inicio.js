@@ -107,27 +107,37 @@ const inicio = () => {
 
 
             {/* MISION Y VISION */}
-            <section id="mision-vision" className="container">
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="card cardMV">
-                            <div className="card-body">
-                                <h2 className="card-title">Misión</h2>
-                                <p className="card-text">Nuestra misión es proporcionar iluminación de alta calidad que transforme espacios y mejore la vida cotidiana. Buscamos la innovación, la sostenibilidad y la satisfacción del cliente en cada producto que ofrecemos.</p>
-                            </div>
+            <section id="mision-vision" className="container pb-5">
+                <h1 className='titulo-categoria text-center'>Quienes somos</h1>
+
+                <div className="flex flex-col md:flex-row pt-5">
+                    <div className="w-full md:w-1/2 md:order-1 border border-blue-500 border-solid">
+                        <div className="p-4">
+                            <h2 className="text-5xl font-bold text-blue-600 text-center">Misión</h2>
+                            <p className="mt-4 text-2xl">Nuestra misión es proporcionar iluminación de alta calidad que transforme espacios y mejore la vida cotidiana. Buscamos la innovación, la sostenibilidad y la satisfacción del cliente en cada producto que ofrecemos.</p>
                         </div>
                     </div>
 
-                    <div className="col-md-6">
-                        <div className="card cardMV">
-                            <div className="card-body">
-                                <h2 className="card-title">Visión</h2>
-                                <p className="card-text">Guiados por la excelencia, aspiramos a ser líderes en el mercado de iluminación, creando tendencias y superando las expectativas. Nos esforzamos por ser reconocidos por nuestro compromiso con la calidad, el diseño y la responsabilidad social.</p>
-                            </div>
+                    <div className="w-full md:w-1/2 md:pl-4 md:order-2">
+                        <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Visión" className="mx-auto md:mx-0 mt-4 md:mt-0" style={{ maxWidth: '100%' }} /> {/* Agregado de imagen para la Visión */}
+                    </div>
+                </div>
+
+
+                <div className="flex flex-col md:flex-row mt-8"> {/* Agregado de mt-8 para separar verticalmente las secciones */}
+                    <div className="w-full md:w-1/2 md:pr-4">
+                        <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Misión" className="mx-auto md:mx-0 mb-4 md:mt-0" style={{ maxWidth: '100%' }} /> {/* Agregado de imagen para la Misión */}
+                    </div>
+
+                    <div className="w-full md:w-1/2 md:order-2 border border-blue-500 border-solid">
+                        <div className="p-4">
+                            <h2 className="text-5xl font-bold text-center text-blue-600">Visión</h2>
+                            <p className="mt-4 text-2xl">Guiados por la excelencia, aspiramos a ser líderes en el mercado de iluminación, creando tendencias y superando las expectativas. Nos esforzamos por ser reconocidos por nuestro compromiso con la calidad, el diseño y la responsabilidad social.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 }
