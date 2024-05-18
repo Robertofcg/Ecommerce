@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const enviarMensaje = () => {
         const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        const mensaje = `Hola, me gustaría realizar una cotización. Productos seleccionados:\n${productos.map(producto => `${producto.Nombre} (${producto.Cantidad} x $${producto.Precio} = $${producto.Cantidad * producto.Precio})`).join('\n')}`;
+        const mensaje = `Hola, me gustaría realizar una cotización. Productos seleccionados:\n${productos.map(producto => `${producto.nombre} (${producto.cantidad} x $${producto.precio} = $${producto.cantidad * producto.precio})`).join('\n')}`;
         const enlace = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
         window.open(enlace, '_blank').focus();
     };
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     const cambiarCantidad = (index, cantidad) => {
         const nuevosProductos = [...productos];
-        nuevosProductos[index].Cantidad = cantidad;
+        nuevosProductos[index].cantidad = cantidad;
         setProductos(nuevosProductos);
         localStorage.setItem('productos', JSON.stringify(nuevosProductos));
     };
@@ -56,7 +56,7 @@ const Navbar = () => {
     const calcularTotal = (productos) => {
         let total = 0;
         productos.forEach(producto => {
-            total += producto.Precio * producto.Cantidad;
+            total += producto.precio * producto.cantidad;
         });
         return total;
     };
@@ -159,10 +159,10 @@ const Navbar = () => {
                                             <td>
                                                 <img className="mix-blend-mode" src={`data:image/png;base64, ${producto.ImagenBase64}`} width={200} height={100} />
                                             </td>
-                                            <td className='fs-3'>{producto.Nombre}<br></br> <button className='btn btn-danger' onClick={() => eliminarProducto(index)}>Eliminar</button></td>
+                                            <td className='fs-3'>{producto.nombre}<br></br> <button className='btn btn-danger' onClick={() => eliminarProducto(index)}>Eliminar</button></td>
                                             <td className='fs-3' style={{ width: 'auto' }}>
                                                 <select
-                                                    value={producto.Cantidad}
+                                                    value={producto.cantidad}
                                                     onChange={(e) => {
                                                         const newValue = parseInt(e.target.value);
                                                         if (newValue === -1) {
@@ -181,13 +181,13 @@ const Navbar = () => {
                                                     {[...Array(6).keys()].map((cantidad) => (
                                                         <option key={cantidad} value={cantidad + 1}>{cantidad + 1 + " u."}</option>
                                                     ))}
-                                                    {producto.Cantidad > 6 && <option value={producto.Cantidad}>{producto.Cantidad + " u."}</option>}
+                                                    {producto.cantidad > 6 && <option value={producto.cantidad}>{producto.cantidad + " u."}</option>}
                                                     <option value={-1}>Otro</option>
                                                 </select>
 
                                             </td>
 
-                                            <td className='fs-3'>${((producto.Precio) * (producto.Cantidad)).toFixed(2)}</td>
+                                            <td className='fs-3'>${((producto.precio) * (producto.cantidad)).toFixed(2)}</td>
 
                                         </tr>
                                     ))}

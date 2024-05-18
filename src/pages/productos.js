@@ -43,26 +43,26 @@ function ProductList() {
     };
 
     const agregarProductoCarrito = (product) => {
-        let listaProductos = JSON.parse(localStorage.getItem('productos')) || []; // Obtener la lista de productos almacenados
-        const existingProductIndex = listaProductos.findIndex(p => p.ID === product.ID);
-
+        let listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
+    
+        const existingProductIndex = listaProductos.findIndex(p => p.id === product.id);
+    
         if (existingProductIndex !== -1) {
-            // Si el producto ya está en el carrito, actualiza su cantidad
-            if (listaProductos[existingProductIndex].Cantidad < 20) {
-                listaProductos[existingProductIndex].Cantidad++;
-                console.log("tamaño de lista: " + listaProductos[existingProductIndex].Cantidad);
+            if (listaProductos[existingProductIndex].cantidad < 20) {
+                listaProductos[existingProductIndex].cantidad++;
             } else {
                 console.log(`Ya no se puede agregar`);
             }
         } else {
             // Si el producto no está en el carrito, agrégalo con cantidad 1
-            product.Cantidad = 1;
+            product.cantidad = 1;
             listaProductos.push(product);
         }
-
-        localStorage.setItem('productos', JSON.stringify(listaProductos)); // Guardar la lista actualizada en localStorage
-        console.log(`Producto agregado al Local Storage: ${product.Nombre}`);
+    
+        localStorage.setItem('productos', JSON.stringify(listaProductos));
+        console.log(`Producto agregado al Local Storage: ${product.nombre}`);
     };
+    
 
     const eliminarAcentos = (cadena) => {
         return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -94,14 +94,14 @@ function ProductList() {
             <div className="row">
                 <div className="col-md-2 col-sm-12 mb-3 p-2">
                     <h2 className='m-2'>Categorias</h2>
-                    <div class="form-check form-check-inline fs-3 mx-2">
-                        <input onChange={handleOnCheckbox} class="form-check-input" type="checkbox" name='filtro' id="led1" value={'led1'} />
-                        <label class="form-check-label" for="inlineRadio1">led 1</label>
+                    <div className="form-check form-check-inline fs-3 mx-2">
+                        <input onChange={handleOnCheckbox} className="form-check-input" type="checkbox" name='filtro' id="led1" value={'led1'} />
+                        <label className="form-check-label" htmlFor="inlineRadio1">led 1</label>
                     </div>
                     <br></br>
-                    <div class="form-check form-check-inline fs-3 mx-2">
-                        <input onChange={handleOnCheckbox} class="form-check-input" type="checkbox" name='filtro' id="led2" value={'led2'} />
-                        <label class="form-check-label" for="inlineRadio2">led 2</label>
+                    <div className="form-check form-check-inline fs-3 mx-2">
+                        <input onChange={handleOnCheckbox} className="form-check-input" type="checkbox" name='filtro' id="led2" value={'led2'} />
+                        <label className="form-check-label" htmlFor="inlineRadio2">led 2</label>
                     </div>
                 </div>
                 <div className="col-md-10">
@@ -111,16 +111,16 @@ function ProductList() {
                                 <figure className="card card-product-grid">
                                     <div className="img-wrap rounded bg-light">
                                         <span className="topbar"></span>
-                                        <NavLink to={`/vistaProductos/${producto.ID}`} activeclassname="active">
-                                            <img className="mix-blend-mode" src={`data:image/png;base64, ${producto.ImagenBase64}`} alt={producto.Nombre} />
+                                        <NavLink to={`/vistaProductos/${producto.id}`} activeclassname="active">
+                                            <img className="mix-blend-mode" src={`data:image/png;base64, ${producto.ImagenBase64}`} alt={producto.nombre} />
                                         </NavLink>
                                     </div>
                                     <figcaption className="card-product-info m-3">
-                                        <NavLink to={`/vistaProductos/${producto.ID}`} activeclassname="active" className='title'>
-                                            {producto.Nombre}
+                                        <NavLink to={`/vistaProductos/${producto.id}`} activeclassname="active" className='title'>
+                                            {producto.nombre}
                                         </NavLink>
                                         <div className="price-wrap">
-                                            <span className="price">${producto.Precio}</span>
+                                            <span className="price">${producto.precio}</span>
                                             {/* <del className="discount-price">$49.99</del> */}
                                         </div>
                                     </figcaption>
