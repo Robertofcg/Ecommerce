@@ -19,6 +19,8 @@ import Catalogo from './pages/productos';
 import VistaProductos from './pages/vistaProducto';
 import Login from './pages/login';
 import RegistrarProducto from './pages/RegistrarProductos';
+import ProductosJava from './pages/productos copy';
+import VistaProductosJava from './pages/vistaProducto copy';
 
 
 function App() {
@@ -32,7 +34,8 @@ function App() {
           <Route path="/vistaProductos/:id" element={<VistaProductos />} />  
           <Route path="/login" element={<Login />} />    
           <Route path="/registrarProducto" element={<RegistrarProducto />} />    
-
+          <Route path="/productosJava" element={<ProductosJava />} /> 
+          <Route path="/vistaProductosJava/:id" element={<VistaProductosJava />} /> 
         </Routes>
       </div>
       <Wsp />

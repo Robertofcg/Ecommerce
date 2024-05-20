@@ -4,15 +4,7 @@
 @tailwind utilities;
 
 
-.selec {
-  border-bottom: 2px solid #e9ecef;
-  /* Puedes ajustar el grosor y el color de la línea según tus preferencias */
-}
 
-body {
-
-  color: #6a6f74;
-}
 
 .texto-izquierda td {
   text-align: left;
