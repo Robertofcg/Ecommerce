@@ -8,7 +8,7 @@ function ProductList() {
 
     const obtenerProducto = async () => {
         try {
-            const response = await Axios.get(`http://localhost:8080/api/productos/${id}`);
+            const response = await Axios.get(`https://ecommerce-productos.up.railway.app/api/productos/${id}`);
             setProducto(response.data);
         } catch (error) {
             console.error('Error al obtener producto:', error);
