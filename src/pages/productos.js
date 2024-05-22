@@ -34,7 +34,7 @@ function ProductList() {
 
     const obtenerProductos = async () => {
         try {
-            const response = await Axios.get("https://ecommerce-k96h.onrender.com/ProductRoute/getProducts");
+            const response = await Axios.get("https://ecommerce-productos.up.railway.app/api/productos");
             setProductos(response.data);
         } catch (error) {
             console.error('Error al obtener productos:', error);

@@ -26,7 +26,7 @@ import VistaProductosJava from './pages/vistaProducto copy';
 
 function App() {
   return (
-    <div className="App" style={{ minHeight: "99.947vh", display: "flex", flexDirection: "column" }}>
+    <div className="App" style={{ minHeight: "99.94vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
       <div className="content-wrapper" style={{ flex: 1, overflowY: "auto" }}>
         <Routes>
