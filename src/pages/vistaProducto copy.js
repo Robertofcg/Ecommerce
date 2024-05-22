@@ -145,7 +145,7 @@ function ProductList() {
                             </div>
                         </div>
                     </div>
-                    <div className='d-flex mb-2 border-gray-300 border-t-2'>
+                    <div className='d-flex mb-2 border-gray-300 border-t-2 descripcion-container'>
                         <span className='fs-2 mx-4 mt-2'><b>Descripcion:</b><br></br><span className='fs-2'>{producto.descripcion}</span></span>
                     </div>
                 </div>

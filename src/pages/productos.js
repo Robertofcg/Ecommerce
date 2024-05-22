@@ -84,7 +84,7 @@ function ProductList() {
     }, [productos, categoria, buscar]);
 
     return (
-        <div className="container app-container mt-24 pt-24"> {/* Agregada la clase mt-16 para el margen superior */}
+        <div className="container app-container" style={{overflow: "hidden", marginTop:"110px"}}>
             <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
 
             <div className="row">

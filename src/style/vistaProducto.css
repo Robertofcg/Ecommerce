@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 
+/* Estilo para preservar los saltos de línea */
+.descripcion-container {
+  white-space: pre-line;
+}
 
 
 .texto-izquierda td {

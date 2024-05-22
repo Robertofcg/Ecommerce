@@ -104,7 +104,7 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li className="miItem">
-                            <NavLink to="/catalogo" activeclassname="active">
+                            <NavLink to="/productosJava" activeclassname="active">
                                 Productos
                             </NavLink>
                         </li>
@@ -172,7 +172,7 @@ const Navbar = () => {
                                             {productos.map((producto, index) => (
                                                 <tr key={index} className="border-b border-gray-200">
                                                     <td className="px-4 py-4">
-                                                        <img src={`data:image/png;base64, ${producto.ImagenBase64}`} alt={producto.nombre} className="w-32 h-20 object-cover rounded-lg shadow-md" />
+                                                        <img src={`data:image/png;base64, ${producto.imagenes}`} alt={producto.nombre} className="w-32 h-20 object-cover rounded-lg shadow-md" />
                                                     </td>
                                                     <td className="px-4 py-4">
                                                         <p className="font-semibold text-xl xl:text-2xl text-gray-800">{producto.nombre}</p>
