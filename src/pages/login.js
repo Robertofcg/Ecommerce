@@ -23,7 +23,7 @@ const Login = () => {
     }
   };
   return (
-    <div className='py-32'>
+    <div className='py-32 mt-24 pt-24'>
       <div className="flex justify-center items-center p-4 ">
         <div className="bg-white shadow p-4 rounded shadow-2xl text-gray-700 sm:w-4/6 md:w-4/6 lg:w-2/5 w-full">
           <div className="flex justify-end">

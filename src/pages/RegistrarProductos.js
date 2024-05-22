@@ -101,7 +101,7 @@ function RegistroProducto() {
 
   if (!loggedIn) {
     return (
-      <div className="grid place-items-center">
+      <div className="grid place-items-center mt-24 pt-24">
         <div className="text-center text-5xl py-60 mx-50 text-blue-900">
           Necesitas iniciar sesión para acceder a esta página
           <NavLink to="/login" activeclassname="active">
@@ -119,7 +119,7 @@ function RegistroProducto() {
 
 
   return (
-    <div className="py-32 px-10">
+    <div className="py-32 px-10 mt-24 pt-24">
       <div className="bg-white p-10 rounded-lg shadow md:w-3/4 lg:w-3/4 mx-auto">
         <h2 className="text-center text-5xl font-bold mb-8">Registro de Producto</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-5">

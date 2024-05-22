@@ -9,6 +9,7 @@ function ProductList() {
     const obtenerProducto = async () => {
         try {
             const response = await Axios.get(`https://ecommerce-productos.up.railway.app/api/productos/${id}`);
+            //const response = await Axios.get(`http://localhost:8080/api/productos/${id}`);
             setProducto(response.data);
         } catch (error) {
             console.error('Error al obtener producto:', error);
@@ -40,7 +41,7 @@ function ProductList() {
     }, []);
 
     return (
-        <div className='container bg-white' style={{ height: '83vh', overflow: 'auto' }}>
+        <div className='container bg-white mt-24 pt-24' style={{ height: '88vh', overflow: 'auto' }}>
             {producto && (
                 <div className='row mb-5'>
                     <div className='col-lg-6'>
@@ -61,9 +62,14 @@ function ProductList() {
                                             </div>
                                         ))
                                     ) : (
-                                        <p>No image available</p>
+                                        <div className="carousel-item mb-3 active" style={{ height: '475px' }}>
+                                            <div className='d-flex justify-content-center align-items-center font-semibold text-3xl' style={{ height: '100%' }}>
+                                                <p>Imagen no disponible</p>
+                                            </div>
+                                        </div>
                                     )}
                                 </div>
+
                                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span className="visually-hidden">Previous</span>

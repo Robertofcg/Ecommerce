@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import Axios from 'axios';
 
 function ProductList() {
@@ -62,7 +61,6 @@ function ProductList() {
         localStorage.setItem('productos', JSON.stringify(listaProductos));
         console.log(`Producto agregado al Local Storage: ${product.nombre}`);
     };
-    
 
     const eliminarAcentos = (cadena) => {
         return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -79,8 +77,6 @@ function ProductList() {
         setBuscar(eliminarAcentos(e.target.value.toLowerCase()));
     };
 
-
-
     useEffect(() => {
         obtenerProductos();
         filtrarProductos();
@@ -88,7 +84,7 @@ function ProductList() {
     }, [productos, categoria, buscar]);
 
     return (
-        <div className="container mt-4 app-container">
+        <div className="container app-container mt-24 pt-24"> {/* Agregada la clase mt-16 para el margen superior */}
             <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
 
             <div className="row">
@@ -134,7 +130,6 @@ function ProductList() {
                 </div>
             </div>
         </div>
-
     );
 }
 

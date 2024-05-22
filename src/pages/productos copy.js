@@ -35,6 +35,7 @@ function ProductList() {
     const obtenerProductos = async () => {
         try {
             const response = await Axios.get("https://ecommerce-productos.up.railway.app/api/productos");
+            // const response = await Axios.get("http://localhost:8080/api/productos");
             setProductos(response.data);
         } catch (error) {
             console.error('Error al obtener productos:', error);
@@ -53,7 +54,6 @@ function ProductList() {
                 console.log(`Ya no se puede agregar`);
             }
         } else {
-            // Si el producto no está en el carrito, agrégalo con cantidad 1
             product.cantidad = 1;
             listaProductos.push(product);
         }
@@ -86,7 +86,7 @@ function ProductList() {
     }, [productos, categoria, buscar]);
 
     return (
-        <div className="container mt-4 app-container">
+        <div className="container app-container mt-24 pt-24" style={{overflow: "hidden"}}>
             <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3'></input>
 
             <div className="row">
@@ -102,7 +102,7 @@ function ProductList() {
                         <label className="form-check-label" htmlFor="inlineRadio2">led 2</label>
                     </div>
                 </div>
-                <div className="col-md-10">
+                <div className="col-md-10" style={{ height: '77vh', overflowY: 'scroll' }}>
                     <div className="row">
                         {datosFiltrados.map((producto, index) => (
                             <div className="col-6 col-sm-6 col-md-4 col-lg-3 col-lg-five mb-4" key={index}>
@@ -119,7 +119,6 @@ function ProductList() {
                                         </NavLink>
                                         <div className="price-wrap">
                                             <span className="price">${producto.precio}</span>
-                                            {/* <del className="discount-price">$49.99</del> */}
                                         </div>
                                     </figcaption>
                                     <footer className="card-footer">

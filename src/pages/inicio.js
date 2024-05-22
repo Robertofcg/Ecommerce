@@ -25,7 +25,7 @@ const inicio = () => {
         carouselSection.scrollIntoView({ behavior: 'smooth' });
     };
     return (
-        <div className={`contenedorG oscuro`}>
+        <div className={`contenedorG oscuro mt-24 pt-24`}>
             {/* BIENVENIDA */}
             <img
                 src={require('../assets/images/led.png')} // Usa require para importar la imagen

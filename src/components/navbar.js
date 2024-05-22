@@ -77,7 +77,7 @@ const Navbar = () => {
     }, [isMenuOpen]);
 
     return (
-        <header>
+        <header className="fixed top-0 left-0 w-full shadow-md z-50">
             <div className="wrapper navbar">
                 <NavLink className="logo d-flex align-items-center justify-content-center ecommerce" to="/">
                     Ecommerce
@@ -144,72 +144,90 @@ const Navbar = () => {
             <span className="hide-mobile"></span>
             <span className="spTwo hide-mobile"></span>
             {showPopup && (
-                <div className="popup-container">
-                    <div className="popup-overlay" onClick={togglePopup}></div>
-                    <div className="popup">
-                        <button onClick={togglePopup} className='btn btn-close d-flex justify-content-end'></button>
-                        <div className="popup-inner table-responsive">
-                            <h1 className='Titulo-carrito'>Carrito de compras</h1>
-                            <p className='fs-3 selec'>Productos seleccionados</p>
-                            <table className="table table-hover">
-
-                                <tbody>
-                                    {productos.map((producto, index) => (
-                                        <tr key={index}>
-                                            <td>
-                                                <img className="mix-blend-mode" src={`data:image/png;base64, ${producto.ImagenBase64}`} width={200} height={100} />
-                                            </td>
-                                            <td className='fs-3'>{producto.nombre}<br></br> <button className='btn btn-danger' onClick={() => eliminarProducto(index)}>Eliminar</button></td>
-                                            <td className='fs-3' style={{ width: 'auto' }}>
-                                                <select
-                                                    value={producto.cantidad}
-                                                    onChange={(e) => {
-                                                        const newValue = parseInt(e.target.value);
-                                                        if (newValue === -1) {
-                                                            const newAmount = parseInt(window.prompt('Ingrese la cantidad:'));
-                                                            if (!isNaN(newAmount) && newAmount > 0 && newAmount < 20) {
-                                                                cambiarCantidad(index, newAmount);
-                                                            } else {
-                                                                const mensaje = alert('No puede ingresar mas de 20 productos');
-
-                                                            }
-                                                        } else {
-                                                            cambiarCantidad(index, newValue);
-                                                        }
-                                                    }}
-                                                >
-                                                    {[...Array(6).keys()].map((cantidad) => (
-                                                        <option key={cantidad} value={cantidad + 1}>{cantidad + 1 + " u."}</option>
-                                                    ))}
-                                                    {producto.cantidad > 6 && <option value={producto.cantidad}>{producto.cantidad + " u."}</option>}
-                                                    <option value={-1}>Otro</option>
-                                                </select>
-
-                                            </td>
-
-                                            <td className='fs-3'>${((producto.precio) * (producto.cantidad)).toFixed(2)}</td>
-
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-auto px-1 xl:px-20">
+                    <div className="fixed inset-0 bg-gray-700 opacity-75"></div>
+                    <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-7xl mx-auto overflow-hidden">
+                        <div className="flex justify-end p-4 border-b border-gray-200">
+                            <button onClick={togglePopup} className="text-gray-500 hover:text-gray-700 focus:outline-none">
+                                <svg className="w-8 h-8 fill-current" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" d="M10.707 10l4.146-4.146a.5.5 0 1 0-.708-.708L10 9.293 5.854 5.146a.5.5 0 1 0-.708.708L9.293 10l-4.147 4.146a.5.5 0 0 0 .708.708L10 10.707l4.146 4.147a.5.5 0 0 0 .708-.708L10.707 10z" clipRule="evenodd" />
+                                </svg>
+                            </button>
                         </div>
-                        <div className="footer fixed-bottom bg-light shadow">
-                            <div className='container shadow border'>
-                                <div className='fs-2 d-flex'>
-                                    <span className='flex-grow-1 d-flex justify-content-first'>Total:</span>
+                        <div className="px-10 py-8">
+                            <h1 className="text-5xl font-bold mb-6 text-center text-gray-800">Carrito de compras</h1>
+                            <p className="text-3xl mb-6 text-center text-gray-600">Productos seleccionados</p>
+                            <div className="overflow-x-auto">
+                                <div className="max-h-[38rem] lg:max-h-[38rem] xl:max-h-[38rem] overflow-y-auto">
+                                    <table className="w-full table-auto">
+                                        <thead>
+                                            <tr className="bg-gray-100 text-left text-gray-700 text-xl">
+                                                <th className="px-4 py-3">Producto</th>
+                                                <th className="px-4 py-3">Nombre</th>
+                                                <th className="px-4 py-3">Cantidad</th>
+                                                <th className="px-4 py-3">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {productos.map((producto, index) => (
+                                                <tr key={index} className="border-b border-gray-200">
+                                                    <td className="px-4 py-4">
+                                                        <img src={`data:image/png;base64, ${producto.ImagenBase64}`} alt={producto.nombre} className="w-32 h-20 object-cover rounded-lg shadow-md" />
+                                                    </td>
+                                                    <td className="px-4 py-4">
+                                                        <p className="font-semibold text-xl xl:text-2xl text-gray-800">{producto.nombre}</p>
+                                                        <button className="text-red-500 hover:text-red-700 text-xl mt-2 font-semibold" onClick={() => eliminarProducto(index)}>Eliminar</button>
+                                                    </td>
+                                                    <td className="px-4 py-4">
+                                                        <select
+                                                            value={producto.cantidad}
+                                                            onChange={(e) => {
+                                                                const newValue = parseInt(e.target.value);
+                                                                if (newValue === -1) {
+                                                                    const newAmount = parseInt(window.prompt('Ingrese la cantidad:'));
+                                                                    if (!isNaN(newAmount) && newAmount > 0 && newAmount < 20) {
+                                                                        cambiarCantidad(index, newAmount);
+                                                                    } else {
+                                                                        alert('No puede ingresar más de 20 productos');
+                                                                    }
+                                                                } else {
+                                                                    cambiarCantidad(index, newValue);
+                                                                }
+                                                            }}
+                                                            className="border border-gray-300 rounded-md p-2 text-lg"
+                                                            style={{ fontSize: '1.5rem' }} // Aquí ajustamos el tamaño de la fuente
+                                                        >
+                                                            {[...Array(6).keys()].map((cantidad) => (
+                                                                <option key={cantidad} value={cantidad + 1}>{cantidad + 1} u.</option>
+                                                            ))}
+                                                            {producto.cantidad > 6 && <option value={producto.cantidad}>{producto.cantidad} u.</option>}
+                                                            <option value={-1}>Otro</option>
+                                                        </select>
+                                                    </td>
+
+
+                                                    <td className="px-4 py-4 text-2xl text-gray-800">${((producto.precio) * (producto.cantidad)).toFixed(2)}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div className="mt-8">
+                                <div className="flex justify-between items-center text-3xl font-semibold text-gray-800">
+                                    <span>Total:</span>
                                     <span>${calcularTotal(productos).toFixed(2)}</span>
                                 </div>
-
-
-                            </div>
-                            <div className="col-sm-12 col-md-12 col-lg-12 d-grid">
-                                <button type="submit" id="btnRegistrar" className="btn-block text-white boton-carrito" onClick={enviarMensaje}>Mandar corizacion</button>
+                                <button type="submit" className="text-2xl w-full mt-8 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg focus:outline-none focus:shadow-outline" onClick={enviarMensaje}>Mandar cotización</button>
                             </div>
                         </div>
                     </div>
                 </div>
             )}
+
+
+
+
         </header>
     );
 };
