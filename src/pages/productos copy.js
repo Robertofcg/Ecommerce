@@ -87,7 +87,7 @@ function ProductList() {
 
     return (
         <div className='container-fluid d-flex justify-content-center'>
-            <div className="sm:w-100 lg:w-11/12 xl:w-11/12" style={{ overflow: "hidden", marginTop: "110px" }}>
+            <div className="w-100" style={{ overflowX: "hidden", marginTop: "110px" }}>
                 <input value={buscar} onChange={buscador} type='text' placeholder='Buscar' className='form-control mb-3 fs-3' />
 
                 <div className="row">
@@ -103,17 +103,15 @@ function ProductList() {
                             <label className="form-check-label" htmlFor="inlineRadio2">led 2</label>
                         </div>
                     </div>
-                    <div className="col-md-10" style={{ height: '77vh', overflowY: 'scroll' }}>
+                    <div className="col-md-10" style={{ height: '77vh', overflowY: 'scroll', overflowX: 'hidden' }}>
                         {datosFiltrados.length === 0 ? (
-                            <div className="flex items-center justify-center mt-20">
+                            <div className="flex items-center justify-center mt-20" style={{ width: '100%', height: '50%' }}>
                                 <svg className="animate-spin h-10 w-10 mr-3 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A8.001 8.001 0 014 12H0c0 6.627 5.373 12 12 12v-4a7.946 7.946 0 01-6-2.709z"></path>
                                 </svg>
                                 <span className='font-semibold text-3xl'>Cargando...</span>
                             </div>
-
-
                         ) : (
                             <div className="row">
                                 {datosFiltrados.map((producto, index) => (
@@ -151,10 +149,8 @@ function ProductList() {
                 </div>
             </div>
         </div>
-
-
-
     );
+
 }
 
 export default ProductList;
