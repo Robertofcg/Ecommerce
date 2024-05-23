@@ -55,9 +55,8 @@ function RegistroProductosJava() {
                     'Authorization': `Bearer ${token}`
                 }
             };
-            const urlBase = await axios.get("https://ecommerce-productos.up.railway.app/api/productos/insertar");
             //const urlBase = "http://localhost:8080/api/productos/insertar";
-            await axios.post(urlBase, empleado, config);
+            await axios.post("https://ecommerce-productos.up.railway.app/api/productos/insertar", empleado, config);
             alert('Producto registrado con éxito');
         } catch (error) {
             console.error('Error al registrar el producto:', error);
