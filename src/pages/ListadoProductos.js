@@ -11,8 +11,8 @@ const ListadoProductos = () => {
 
     const obtenerProductos = async () => {
         try {
-            //const response = await Axios.get("https://ecommerce-productos.up.railway.app/api/productos");
-            const response = await Axios.get("http://localhost:8080/api/productos");
+            const response = await Axios.get("https://ecommerce-productos.up.railway.app/api/productos");
+            //const response = await Axios.get("http://localhost:8080/api/productos");
             setProductos(response.data);
         } catch (error) {
             console.error('Error al obtener productos:', error);
@@ -21,8 +21,8 @@ const ListadoProductos = () => {
 
     const obtenerProductoParaEditar = async () => {
         try {
-            //const response = await Axios.get(`https://ecommerce-productos.up.railway.app/api/productos/${idProductoEditar}`);
-            const response = await Axios.get(`http://localhost:8080/api/productos/${idProductoEditar}`);
+            const response = await Axios.get(`https://ecommerce-productos.up.railway.app/api/productos/${idProductoEditar}`);
+            //const response = await Axios.get(`http://localhost:8080/api/productos/${idProductoEditar}`);
 
             setProductosId(response.data);
         } catch (error) {
