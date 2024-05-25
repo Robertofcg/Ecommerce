@@ -22,7 +22,8 @@ import RegistrarProducto from './pages/RegistrarProductos';
 import RegistrarProductoJava from './pages/RegistrarProductosJava';
 import ProductosJava from './pages/productos copy';
 import VistaProductosJava from './pages/vistaProducto copy';
-
+import EditarProducto from './pages/editarProducto';
+import ListadoProductos from './pages/ListadoProductos';
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
           <Route path="/registrarProductoJava" element={<RegistrarProductoJava />} />
           <Route path="/productosJava" element={<ProductosJava />} />
           <Route path="/vistaProductosJava/:id" element={<VistaProductosJava />} />
+          <Route path="/editar/:id" element={<EditarProducto />} />
+          <Route path="/acceso/productos" element={<ListadoProductos />} />
         </Routes>
       </div>
       <Wsp />
